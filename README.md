@@ -4,7 +4,7 @@
 
 O aplicativo tem como objetivo organizar cargas de rações de uma empresa que aloja suínos em vários municípios e diversos produtores, para posteriormente redirecionar à fábrica para a produção da mesma. O programa necessita que seja feito um resumo de todos produtores e sua localidade que necessitam de ração no dia. Precisa que esse resumo tenha turnos de necessidade, tais como manhã, tarde e noite. Deve ter um serviço de registro dos dados dos produtores e tipos de rações. O programa será gerido por somente um usuário. Por ser utilizado somente por um usuário o aplicativo deve ter um login, para que não seja feita alterações por terceiros indesejados.
 
-## Escopo Geral
+## Escopo Geral e suas funcionalidades 
 
 ### 1. Login
 O sistema terá uma conta de login fixa por conter somente um usuário padrão, sendo definido pelo usuário na hora de instalação do software
