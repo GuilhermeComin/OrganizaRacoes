@@ -1,13 +1,6 @@
 <?php 
 
     class User {
-        private $id;
-        private $nome;
-        private $sobrenome;
-        private $idade;
-        private $password;
-        private $email;
-
 
         public function __construct()
         {
