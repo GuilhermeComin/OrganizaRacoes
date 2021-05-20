@@ -1,9 +1,12 @@
 <?php 
 
-    class User {
+    class Pedido {
 
-        private $nome;
-        private $password;
+        private $idPedido;
+        private $nomeProdutor;
+        private $data;
+        private $racao;
+        private $periodo;
 
         public function __construct()
         {

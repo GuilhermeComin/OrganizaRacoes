@@ -1,9 +1,11 @@
 <?php 
 
-    class User {
+    class Produtor {
 
+        private $id;
         private $nome;
-        private $password;
+        private $localizacao;
+        private $tipoSuino;
 
         public function __construct()
         {

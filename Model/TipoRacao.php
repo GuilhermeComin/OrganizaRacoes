@@ -1,9 +1,10 @@
 <?php 
 
-    class User {
+    class TipoRacao {
 
+        private $id;
         private $nome;
-        private $password;
+        private $tipoDestino;
 
         public function __construct()
         {
