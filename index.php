@@ -24,10 +24,9 @@
 				<div class="col-md-3 menu">
 					<ul class="list-group">
 						<li class="list-group-item active"><a href="#">Pedidos de Hoje</a></li>
-						<li class="list-group-item"><a href="nova_tarefa.php">Novo Pedido</a></li>
-						<li class="list-group-item"><a href="todas_tarefas.php">Novo Produtor</a></li>
-                        <li class="list-group-item"><a href="todas_tarefas.php">Novo Tipo de Ração</a></li>
-                        
+						<li class="list-group-item"><a href="/View/createPedido.php">Novo Pedido</a></li>
+						<li class="list-group-item"><a href="/View/createProdutor.php">Novo Produtor</a></li>
+                        <li class="list-group-item"><a href="/View/createRacao.php">Novo Tipo de Ração</a></li>                       
 					</ul>
 				</div>
 
@@ -43,8 +42,8 @@
                                     <div class="col-sm-3">28 - Alojamento</div>
                                     <div class="col-sm-4">4.000,00 KGs</div>
 									<div class="col-sm-2 mt-2 d-flex justify-content-between">
-										<i class="fas fa-trash-alt fa-lg text-danger"></i>
 										<i class="fas fa-edit fa-lg text-info"></i>
+										<i class="fas fa-trash-alt fa-lg text-danger"></i>
 									</div>
 								</div>
 
@@ -53,8 +52,8 @@
                                     <div class="col-sm-3">28 - Alojamento</div>
                                     <div class="col-sm-4">4.000,00 KGs</div>
 									<div class="col-sm-2 mt-2 d-flex justify-content-between">
-										<i class="fas fa-trash-alt fa-lg text-danger"></i>
 										<i class="fas fa-edit fa-lg text-info"></i>
+										<i class="fas fa-trash-alt fa-lg text-danger"></i>
 									</div>
 								</div>
 							</div>
