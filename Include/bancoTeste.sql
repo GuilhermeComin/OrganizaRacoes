@@ -3,9 +3,16 @@ CREATE TABLE tipoSuino (
 	descricao		varchar(100)		NOT NULL
 );
 
+CREATE TABLE tipoDestino (
+	idDestino			serial			PRIMARY KEY,
+	nomeDestino			varchar(50)	NOT NULL
+);
+
 CREATE TABLE tipoRacao (
 	idRacao				serial			PRIMARY KEY,
-	nomeRacao			varchar(100)	NOT NULL
+	nomeRacao			varchar(100)	NOT NULL,
+	tipoDestino			varchar(50)	NOT NULL,
+	FOREIGN KEY (tipoDestino) REFERENCES tipoDestino(idDestino)
 );
 
 CREATE TABLE cidade (
