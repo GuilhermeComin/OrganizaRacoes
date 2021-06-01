@@ -3,10 +3,10 @@
     class Pedido {
 
         private $idPedido;
-        private $nomeProdutor;
+        private $produtor;
+        private $tipoRacao;
         private $data;
-        private $racao;
-        private $periodo;
+        private $turno;
 
         public function __construct()
         {

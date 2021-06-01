@@ -1,11 +1,10 @@
 <?php 
 
-    class Produtor {
+    class Destino {
 
-        private $idProdutor;
-        private $nomeProdutor;
-        private $cidade;
-        private $tipoSuino;
+        private $idDestino;
+        private $nomeDestino;
+
 
         public function __construct()
         {
