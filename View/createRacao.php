@@ -22,10 +22,12 @@
 			<div class="row">
 				<div class="col-md-3 menu">
 					<ul class="list-group">
-                        <li class="list-group-item active"><a href="../index.php">Pedidos de Hoje</a></li>
-						<li class="list-group-item"><a href="/View/createPedido.php">Novo Pedido</a></li>
-						<li class="list-group-item"><a href="/View/createProdutor.php">Novo Produtor</a></li>
-                        <li class="list-group-item"><a href="/View/createRacao.php">Novo Tipo de Ração</a></li>                      
+                        <li class="list-group-item"><a href="../index.php">Pedidos de Hoje</a></li>
+						<li class="list-group-item"><a href="createPedido.php">Novo Pedido</a></li>
+						<li class="list-group-item"><a href="createProdutor.php">Novo Produtor</a></li>
+                        <li class="list-group-item active"><a href="createRacao.php">Novo Tipo de Ração</a></li>  
+						<li class="list-group-item"><a href="createSuino.php">Novo Tipo de Suino</a></li> 
+						<li class="list-group-item"><a href="createCidade.php">Nova Cidade</a></li>                     
 					</ul>
 				</div>
     </body>
