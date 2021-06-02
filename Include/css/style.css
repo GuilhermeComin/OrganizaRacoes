@@ -17,16 +17,31 @@ li.list-group-item.active {
     border-left:solid 10px #009933;
 }
 
+li.list-group-item:hover {
+	background-color: #009933;
+	border-color: #009933;
+    border-left:solid 10px #009933;
+	font-size: large;
+}
+
 li a {
 	color: #212529;
 }
 
 li a:hover {
 	text-decoration: none;
+	color: #212529;
 }
 
 h4 {
 	color: #009933 !important;
 }
 
+.abotao {
+	color:white;
+}
 
+.abotao:hover {
+	text-decoration: none;
+	color:white;
+}
