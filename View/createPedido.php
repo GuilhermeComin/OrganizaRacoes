@@ -50,18 +50,16 @@
 									<label>Produtor: </label>
 										<select class="custom-select">
 											<option selected>Selecione o Produtor</option>
-											<option value="1">Terminação</option>
-											<option value="2">Creche</option>
-											<option value="3">Maternidade</option>
+											<option value="1">Jorge da Silva</option>
+											<option value="2">Kleber Bambam</option>
 										</select> <br>
 										<div class="row">
 											<div class="col-lg-9">
 												<br><label>Ração: </label>
 												<select class="custom-select">
 													<option selected>Selecione a Ração</option>
-													<option value="1">Terminação</option>
-													<option value="2">Creche</option>
-													<option value="3">Maternidade</option>
+													<option value="1">Alojamento</option>
+													<option value="2">Crescimento 1</option>
 												</select> <br>
 											</div>
 											<div class="col-lg-3">

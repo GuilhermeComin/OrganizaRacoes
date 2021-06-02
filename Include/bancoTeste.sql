@@ -27,8 +27,8 @@ CREATE TABLE produtor (
 CREATE TABLE registroPedido (
 	idPedido			serial			PRIMARY KEY,
 	produtor			int				NOT NULL,
-	peso				decimal(7,2)
 	tipoRacao			int				NOT NULL,
+	peso				decimal(7,2)	NOT NULL,
 	data				date			NOT NULL,
 	turno				varchar(5)		NOT NULL,
 	FOREIGN KEY (produtor) REFERENCES produtor(idProdutor),
