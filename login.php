@@ -17,7 +17,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="card">
-                        <form action="index.php" class="box">
+                        <form action="index.php" class="box" name="formLogin">
                             <h1>Login</h1>
                             <p class="text-muted"> Por favor insira seu usuário e senha!</p>
                             <input required type="text" name="" placeholder="Usuário"> 

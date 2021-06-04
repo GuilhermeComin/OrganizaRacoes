@@ -4,7 +4,6 @@
 
         private $idProdutor;
         private $nomeProdutor;
-        private $peso;
         private $cidade;
         private $tipoSuino;
 
