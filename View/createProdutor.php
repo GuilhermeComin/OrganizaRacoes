@@ -25,7 +25,8 @@
                         <li class="list-group-item"><a href="../index.php">Pedidos de Hoje</a></li>
 						<li class="list-group-item"><a href="createPedido.php">Novo Pedido</a></li>
 						<li class="list-group-item active"><a href="createProdutor.php">Novo Produtor</a></li>
-                        <li class="list-group-item"><a href="createRacao.php">Novo Tipo de Ração</a></li>   
+                        <li class="list-group-item"><a href="createRacao.php">Novo Tipo de Ração</a></li>
+						<li class="list-group-item" id="logout"><a href="#">Logout</a></li>   
 					</ul>
 				</div>
 				<div class="col-md-9">
@@ -38,18 +39,18 @@
 								<form>
 									<div class="form-group">
 										<label>Nome do Produtor: </label>
-										<input type="text" class="form-control" placeholder="Exemplo: Gustavo da Silva"> <br>
+										<input required type="text" class="form-control" placeholder="Exemplo: Gustavo da Silva"> <br>
 										<label>Cidade: </label>
-										<input type="text" class="form-control" placeholder="Exemplo: Marau"> <br>
+										<input required type="text" class="form-control" placeholder="Exemplo: Marau"> <br>
 										<label>Tipo de suino que aloja: </label>
-										<select class="custom-select">
-											<option selected>Selecione o tipo de suino</option>
+										<select required class="custom-select">
+											<option value="" disabled selected>Selecione o tipo de suino</option>
 											<option value="1">Terminação</option>
 											<option value="2">Creche</option>
 											<option value="3">Maternidade</option>
 										</select>
 									</div>
-									<button class="btn btn-success">Cadastrar</button>
+									<button type="submit" class="btn btn-success">Cadastrar</button>
 									<button class="btn btn-danger"><a class="abotao" href="../index.php">Cancelar</a></button>
 								</form>
 							</div>

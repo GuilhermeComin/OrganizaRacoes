@@ -5,6 +5,7 @@
         private $idPedido;
         private $produtor;
         private $tipoRacao;
+        private $peso;
         private $data;
         private $turno;
 

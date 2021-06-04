@@ -19,8 +19,6 @@ li.list-group-item.active {
 
 li.list-group-item:hover {
 	background-color: #009933;
-	border-color: #009933;
-    border-left:solid 10px #009933;
 	font-size: large;
 }
 
@@ -44,4 +42,17 @@ h4 {
 .abotao:hover {
 	text-decoration: none;
 	color:white;
+}
+
+#logout {
+	border-color: red;
+	border-left:solid 10px red;
+	text-align: center;
+	font-size: large;
+	margin-top: 25px;
+}
+
+#logout:hover {
+	background-color: red;
+	font-size: larger;
 }

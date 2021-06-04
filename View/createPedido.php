@@ -8,7 +8,6 @@
 		<script>
 			$(document).ready(function() {
 			$("#peso").mask("#.##0,00", {reverse: true});
-			// $('.money').mask('#.##0,00', {reverse: true});
 		});
 		</script>   
 		<link rel="stylesheet" href="../Include/css/style.css">
@@ -35,7 +34,8 @@
                         <li class="list-group-item"><a href="../index.php">Pedidos de Hoje</a></li>
 						<li class="list-group-item active"><a href="createPedido.php">Novo Pedido</a></li>
 						<li class="list-group-item"><a href="createProdutor.php">Novo Produtor</a></li>
-                        <li class="list-group-item"><a href="createRacao.php">Novo Tipo de Ração</a></li>  
+                        <li class="list-group-item"><a href="createRacao.php">Novo Tipo de Ração</a></li> 
+						<li class="list-group-item" id="logout"><a href="#">Logout</a></li>  
 					</ul>
 				</div>
 				<div class="col-md-9">
@@ -48,16 +48,16 @@
 								<form>
 									<div class="form-group">
 									<label>Produtor: </label>
-										<select class="custom-select">
-											<option selected>Selecione o Produtor</option>
+										<select required class="custom-select">
+											<option value="" disabled selected>Selecione o Produtor</option>
 											<option value="1">Jorge da Silva</option>
 											<option value="2">Kleber Bambam</option>
 										</select> <br>
 										<div class="row">
 											<div class="col-lg-9">
 												<br><label>Ração: </label>
-												<select class="custom-select">
-													<option selected>Selecione a Ração</option>
+												<select required class="custom-select">
+													<option value="" disabled selected>Selecione a Ração</option>
 													<option value="1">Alojamento</option>
 													<option value="2">Crescimento 1</option>
 												</select> <br>
@@ -65,7 +65,7 @@
 											<div class="col-lg-3">
 												<br><label>Quantidade em KGs: </label>
 												<div class="input-group">
-													<input type="real" id="peso" class="form-control">
+													<input required type="real" id="peso" class="form-control">
 													<div class="input-group-append">
 														<span class="input-group-text">kg</span>
 													</div>
@@ -76,20 +76,20 @@
 										<div class="row">
 											<div class="col-lg-6">
 												<br><label>Data de entrega: </label>
-												<input type="date" class="form-control">
+												<input required type="date" class="form-control">
 											</div>
 											<div class="col-lg-6">
 												<br><label>Turno de Entrega: </label>
-												<select class="custom-select">
-													<option selected>Selecione o turno</option>
-													<option value="manha">Manhã</option>
-													<option value="tarde">Tarde</option>
-													<option value="noite">Noite</option>
+												<select required class="custom-select">
+													<option value="" disabled selected>Selecione o turno</option>
+													<option value="1">Manhã</option>
+													<option value="2">Tarde</option>
+													<option value="3">Noite</option>
 											</select> <br>
 										</div>	
 									</div>
 									<br>
-									<button class="btn btn-success">Cadastrar</button>
+									<button type="submit" class="btn btn-success">Cadastrar</button>
 									<button class="btn btn-danger"><a class="abotao" href="../index.php">Cancelar</a></button>
 								</form>
 							</div>

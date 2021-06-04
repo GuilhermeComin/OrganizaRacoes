@@ -1,3 +1,7 @@
-colocar required nos forms
 integração banco
-login
+    parte do login
+    registro dos dados (produtor e ração)
+    listagem das rações e produtores para criar os pedidos
+    registro dos pedidos
+    listagem dos pedidos
+
