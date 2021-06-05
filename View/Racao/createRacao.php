@@ -26,7 +26,7 @@
 						<li class="list-group-item"><a href="../Pedido/createPedido.php">Novo Pedido</a></li>
 						<li class="list-group-item"><a href="../Produtor/createProdutor.php">Novo Produtor</a></li>
                         <li class="list-group-item active"><a href="createRacao.php">Novo Tipo de Ração</a></li> 
-						<li class="list-group-item" id="logout"><a href="#">Sair</a></li>                  
+						<li class="list-group-item" id="logout"><a href="../../login.php">Sair</a></li>                  
 					</ul>
 				</div>
 				<div class="col-md-9">
