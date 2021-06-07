@@ -3,7 +3,7 @@
     class TipoRacao {
 
         private $id;
-        private $nome;
+        private $nomeRacao;
         private $tipoDestino;
 
         public function __construct()

@@ -1,3 +1,6 @@
+<?php
+	session_start();
+?>
 <html>
 	<head>
 		<meta charset="utf-8" />
@@ -36,7 +39,7 @@
 						<div class="row">
 							<div class="col">
 								<h4>Pedidos: </h4>
-								<hr />
+								<hr/>
 
 								<div class="row mb-3 d-flex align-items-center tarefa">
 									<div class="col-sm-3">Delvino Lorenzetti</div>

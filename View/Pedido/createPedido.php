@@ -1,3 +1,6 @@
+<?php
+	session_start();
+?>
 <html>
 	<head>
 		<meta charset="utf-8" />
@@ -92,6 +95,7 @@
 									<br>
 									<button type="submit" class="btn btn-success">Cadastrar</button>
 									<button class="btn btn-danger"><a class="abotao" href="../../index.php">Cancelar</a></button>
+									<button class="btn btn-info float-right"><a class="abotao" href="../../Controller/PedidoController.php?operation=listarTodo">Listar Todos</a></button>
 								</form>
 							</div>
 						</div>

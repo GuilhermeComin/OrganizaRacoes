@@ -1,7 +1,13 @@
 integração banco
     parte do login
-    registro dos dados (produtor e ração)
+
+    listagem dos produtores
+    listagem das rações
+
     listagem das rações e produtores para criar os pedidos
+
     registro dos pedidos
-    listagem dos pedidos
+    listagem de todos pedidos
+
+    listagem dos pedidos filtrado por data
 

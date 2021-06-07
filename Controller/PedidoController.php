@@ -1,4 +1,5 @@
 <?php
+    session_start();
 
     require ('Model/Pedido.php');
     require ('Include/PedidoValidate.php');
