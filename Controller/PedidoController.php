@@ -1,7 +1,7 @@
 <?php
 
-    require ('../Model/Pedido.php');
-    require ('../Include/PedidoValidate.php');
+    require ('Model/Pedido.php');
+    require ('Include/PedidoValidate.php');
 
     $erros = array();
 
