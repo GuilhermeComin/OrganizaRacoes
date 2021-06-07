@@ -10,7 +10,7 @@
 		<script src="../../Include/jquery/jQuery-Mask-Plugin-master/src/jquery.mask.js"></script>
 		<script>
 			$(document).ready(function() {
-			$("#peso").mask("#.##0,00", {reverse: true});
+			$("#peso").mask("#0.00", {reverse: true});
 		});
 		</script> 
 
@@ -36,9 +36,9 @@
 				<div class="col-md-3 menu">
 					<ul class="list-group">
                         <li class="list-group-item"><a href="../../index.php">Pedidos de Hoje</a></li>
-						<li class="list-group-item active"><a href="createPedido.php">Novo Pedido</a></li>
-						<li class="list-group-item"><a href="../Produtor/createProdutor.php">Novo Produtor</a></li>
-                        <li class="list-group-item"><a href="../Racao/createRacao.php">Novo Tipo de Ração</a></li> 
+						<li class="list-group-item active"><a href="createPedido.php?operation=cadastrar">Novo Pedido</a></li>
+						<li class="list-group-item"><a href="../Produtor/createProdutor.php?operation=cadastrar">Novo Produtor</a></li>
+                        <li class="list-group-item"><a href="../Racao/createRacao.php?operation=cadastrar">Novo Tipo de Ração</a></li> 
 						<li class="list-group-item" id="logout"><a href="../../login.php">Sair</a></li>  
 					</ul>
 				</div>
@@ -49,7 +49,7 @@
 								<h4>Novo Pedido</h4>
 								<hr />
 
-								<form action="../../Controller/PedidoController.php" method="post" name="formPedido">
+								<form action="../../Controller/PedidoController.php?operation=cadastrar" method="post" name="formPedido">
 									<div class="form-group">
 									<label>Produtor: </label>
 										<select required name="txtprodutor" class="custom-select">
@@ -62,7 +62,7 @@
 												<br><label>Ração: </label>
 												<select required name="txttipoRacao" class="custom-select">
 													<option value="" disabled selected>Selecione a Ração</option>
-													<option value="1">Alojamento</option>
+													<option value="28">Alojamento</option>
 													<option value="2">Crescimento 1</option>
 												</select> <br>
 											</div>
@@ -95,7 +95,7 @@
 									<br>
 									<button type="submit" class="btn btn-success">Cadastrar</button>
 									<button class="btn btn-danger"><a class="abotao" href="../../index.php">Cancelar</a></button>
-									<button class="btn btn-info float-right"><a class="abotao" href="../../Controller/PedidoController.php?operation=listarTodo">Listar Todos</a></button>
+									<button class="btn btn-info float-right"><a class="abotao" href="../../Controller/PedidoController.php?operation=listar">Listar Todos</a></button>
 								</form>
 							</div>
 						</div>

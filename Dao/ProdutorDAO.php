@@ -29,5 +29,21 @@
                 echo $e->getMessage();
             }
         }
+
+        public function search() {
+            try {
+                $statement = $this->connection->prepare(
+                    "SELECT * FROM Produtor"
+                );
+                $statement->execute();
+                $dados = $statement->fetchAll();
+                $this->connection = null;
+
+                return $dados;
+            } catch (PDOException $e) {
+                echo "Ocorreram erros ao listar os produtores";
+                echo $e->getMessage();
+            }
+        }
     }
 ?>

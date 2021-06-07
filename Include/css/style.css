@@ -56,3 +56,14 @@ h4 {
 	background-color: red;
 	font-size: larger;
 }
+
+#voltar {
+	border-color: #17a2b8;
+    border-left:solid 10px #17a2b8;
+	text-align: center;
+}
+
+#voltar:hover {
+	background-color: #17a2b8;
+	font-size: larger;
+}

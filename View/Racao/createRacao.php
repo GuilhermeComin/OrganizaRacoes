@@ -26,9 +26,9 @@
 				<div class="col-md-3 menu">
 					<ul class="list-group">
                         <li class="list-group-item"><a href="../../index.php">Pedidos de Hoje</a></li>
-						<li class="list-group-item"><a href="../Pedido/createPedido.php">Novo Pedido</a></li>
-						<li class="list-group-item"><a href="../Produtor/createProdutor.php">Novo Produtor</a></li>
-                        <li class="list-group-item active"><a href="createRacao.php">Novo Tipo de Ração</a></li> 
+						<li class="list-group-item"><a href="../Pedido/createPedido.php?operation=cadastrar">Novo Pedido</a></li>
+						<li class="list-group-item"><a href="../Produtor/createProdutor.php?operation=cadastrar">Novo Produtor</a></li>
+                        <li class="list-group-item active"><a href="createRacao.php?operation=cadastrar">Novo Tipo de Ração</a></li> 
 						<li class="list-group-item" id="logout"><a href="../../login.php">Sair</a></li>                  
 					</ul>
 				</div>
@@ -39,7 +39,7 @@
 								<h4>Nova Ração</h4>
 								<hr />
 
-								<form action="../../Controller/RacaoController.php" method="post" name="formRacao">
+								<form action="../../Controller/RacaoController.php?operation=cadastrar" method="post" name="formRacao">
 									<div class="form-group">
 										<label>ID da ração:</label>
 										<input required type="number" name="txtidracao" class="form-control" placeholder="Exemplo: 28"><br>

@@ -4,6 +4,8 @@
     require ('Model/TipoRacao.php');
     require ('Dao/RacaoDAO.php');
 
+
+    function criar() {
         $racao = new TipoRacao();
 
         $racao->idRacao = $_POST['txtidracao'];
@@ -13,5 +15,41 @@
         $racaoDAO = new RacaoDAO();
         $racaoDAO->create($racao);
 
-        header("location:../View/Racao/createRacao.php");
+        header("location:../View/Racao/createRacao.php?operation=cadastrar");
+    }
+
+    function listar() {
+        $racaoDAO = new RacaoDAO();
+        $racoes = $racaoDAO->search();
+
+        $_SESSION['racoes'] = serialize($racoes);
+        header("location:../View/Racao/listRacao.php");
+    }
+
+    function atualizar() {
+
+    }
+
+    function deletar() {
+
+    }
+    
+    $operacao = $_GET['operation'];
+    if (isset($operacao)) {
+        switch($operacao) {
+            case 'cadastrar';
+            criar();
+            break;
+            case 'listar';
+            listar();
+            break;
+            case 'atualizar';
+            atualizar();
+            break;
+            case 'deletar';
+            deletar();
+            break;
+        }
+    }
+        
 ?>

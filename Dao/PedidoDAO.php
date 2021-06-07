@@ -2,7 +2,7 @@
 
     require 'Persistence/ConnectionDB.php';
 
-    class RacaoDAO {
+    class PedidoDAO {
 
         private $connection = null;
 
@@ -10,15 +10,17 @@
             $this->connection = ConnectionDB::getInstance();
         }
 
-        public function create ($racao) {
+        public function create ($pedido) {
             try {
                 $statement = $this->connection->prepare(
-                    "INSERT INTO tipoRacao (idRacao, nomeRacao, tipoDestino) VALUES (?, ?, ?)"
+                    "INSERT INTO pedido (produtor, tiporacao, peso, data, turno) VALUES (?, ?, ?, ?, ?)"
                 );
 
-                $statement->bindValue(1, $racao->idRacao);
-                $statement->bindValue(2, $racao->nomeRacao);
-                $statement->bindValue(3, $racao->tipoDestino);
+                $statement->bindValue(1, $pedido->produtor);
+                $statement->bindValue(2, $pedido->tipoRacao);
+                $statement->bindValue(3, $pedido->peso);
+                $statement->bindValue(4, $pedido->data);
+                $statement->bindValue(5, $pedido->turno);
 
                 $statement->execute();
 
@@ -33,7 +35,7 @@
         public function search() {
             try {
                 $statement = $this->connection->prepare(
-                    "SELECT * FROM tipoRacao"
+                    "SELECT * FROM pedido"
                 );
                 $statement->execute();
                 $dados = $statement->fetchAll();

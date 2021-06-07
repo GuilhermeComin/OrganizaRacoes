@@ -26,9 +26,9 @@
 				<div class="col-md-3 menu">
 					<ul class="list-group">
                         <li class="list-group-item"><a href="../../index.php">Pedidos de Hoje</a></li>
-						<li class="list-group-item"><a href="../Pedido/createPedido.php">Novo Pedido</a></li>
-						<li class="list-group-item active"><a href="createProdutor.php">Novo Produtor</a></li>
-                        <li class="list-group-item"><a href="../Racao/createRacao.php">Novo Tipo de Ração</a></li>
+						<li class="list-group-item"><a href="../Pedido/createPedido.php?operation=cadastrar">Novo Pedido</a></li>
+						<li class="list-group-item active"><a href="createProdutor.php?operation=cadastrar">Novo Produtor</a></li>
+                        <li class="list-group-item"><a href="../Racao/createRacao.php?operation=cadastrar">Novo Tipo de Ração</a></li>
 						<li class="list-group-item" id="logout"><a href="../../login.php">Sair</a></li>   
 					</ul>
 				</div>
@@ -39,7 +39,7 @@
 								<h4>Novo Produtor</h4>
 								<hr />
 
-								<form action="../../Controller/ProdutorController.php" method="post" name="formProdutor">
+								<form action="../../Controller/ProdutorController.php?operation=cadastrar" method="post" name="formProdutor">
 									<div class="form-group">
 										<label>Nome do Produtor: </label>
 										<input required type="text" name="txtprodutor" class="form-control" placeholder="Exemplo: Gustavo da Silva"> <br>

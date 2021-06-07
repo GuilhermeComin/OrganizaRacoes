@@ -4,6 +4,8 @@
     require ('Model/Produtor.php');
     require ('Dao/ProdutorDAO.php');
 
+
+    function criar() {
         $produtor = new Produtor();
 
         $produtor->nomeProdutor = $_POST['txtprodutor'];
@@ -13,5 +15,43 @@
         $produtorDao = new ProdutorDAO();
         $produtorDao->create($produtor);
 
-        header("location:../View/Produtor/createProdutor.php");
+        header("location:../View/Produtor/createProdutor.php?operation=cadastrar");
+    }
+
+    function listar() {
+        $produtorDAO = new ProdutorDAO();
+        $produtores = $produtorDAO->search();
+
+        $_SESSION['produtores'] = serialize($produtores);
+        header("location:../View/Produtor/listProdutor.php");
+    }
+
+    function atualizar() {
+
+    }
+
+    function deletar() {
+
+    }
+    
+    $operacao = $_GET['operation'];
+    if (isset($operacao)) {
+        switch($operacao) {
+            case 'cadastrar';
+            criar();
+            break;
+            case 'listar';
+            listar();
+            break;
+            case 'atualizar';
+            atualizar();
+            break;
+            case 'deletar';
+            deletar();
+            break;
+        }
+    }
+
+
+        
 ?>
