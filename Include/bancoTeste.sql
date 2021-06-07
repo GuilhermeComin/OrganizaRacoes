@@ -33,7 +33,7 @@ INSERT INTO turnoPedido VALUES (1, 'Manhã');
 INSERT INTO turnoPedido VALUES (2, 'Tarde');
 INSERT INTO turnoPedido VALUES (3, 'Noite');
 
-CREATE TABLE registroPedido (
+CREATE TABLE pedido (
 	idPedido			serial			PRIMARY KEY,
 	produtor			int				NOT NULL,
 	tipoRacao			int				NOT NULL,
