@@ -47,6 +47,21 @@
 									</div>
 								</div>
 
+								<?php
+									if(isset($_SESSION['produtores'])) {
+										include_once 'Model/Produtor.php';
+
+										$produtores = unserialize($_SESSION['produtores']);
+										
+										foreach($produtores as $p) { 
+											$id = $p['idprodutor'];
+											$nome = $p['nomeprodutor'];
+											$cidade = $p['cidade'];
+											$suino = $p['tiposuino'];
+										}										
+									}
+								?>
+
 								<div class="row mb-3 d-flex align-items-center tarefa">
                                     <div class="col-sm-2">1</div>
                                     <div class="col-sm-3">Delvino Lorenzetti</div>

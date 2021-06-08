@@ -24,7 +24,7 @@ CREATE TABLE produtor (
 	FOREIGN KEY (tipoSuino) REFERENCES tipoSuino(idSuino)
 );
 
-CREATE TABLE turnoPedido (
+CREATE TABLE turno (
 	idTurno				int				PRIMARY KEY,
 	nomeTurno			varchar(5)		NOT NULL
 );
