@@ -1,5 +1,8 @@
 <?php
 	session_start();
+	if (empty($_SESSION['usuario']) && empty($_SESSION['senha'])) {
+		header("location:../../index.php");
+	}
 ?>
 <html>
 	<head>
@@ -27,24 +30,11 @@
 				<div class="col-md-2 menu">
 					<ul class="list-group">
 						<li class="list-group-item" id="voltar"><a href="../Racao/createRacao.php">Voltar</a></li>   
-						<li class="list-group-item" id="logout"><a href="../../login.php">Sair</a></li>                 
+						<li class="list-group-item" id="logout"><a href="../../Controller/AuthController.php?operation=logout">Sair</a></li>                 
 					</ul>
 				</div>
 
-					<?php
-						if(isset($_SESSION['racoes'])) {
-							include_once 'Model/TipoRacao.php';
-
-							$racoes = unserialize($_SESSION['racoes']);
-							
-							foreach($racoes as $r) { 
-								$id = $r['idracao'];
-								$nome = $r['nomeracao'];
-								$destino = $r['tipodestino'];
-							}
-							
-						}
-					?>
+					
 								<div class="col-md-10">
 									<div class="container pagina">
 										<div class="row">
@@ -59,16 +49,29 @@
 													<div class="col-sm-2 mt-2 d-flex justify-content-between">
 													</div>
 												</div>
+												<?php
+													if(isset($_SESSION['racoes'])) {
+														include_once 'Model/TipoRacao.php';
 
-												<div class="row mb-3 d-flex align-items-center tarefa">
-													<div class="col-sm-2">28</div>
-													<div class="col-sm-4">Alojamento</div>
-													<div class="col-sm-4">Terminação</div>
-													<div class="col-sm-2 mt-2 d-flex justify-content-between">
-														<i class="fas fa-edit fa-lg text-info"></i>
-														<i class="fas fa-trash-alt fa-lg text-danger"></i>
-													</div>
-												</div>
+														$racoes = unserialize($_SESSION['racoes']);
+														
+														foreach($racoes as $r) { 															
+															$id = $r['idracao']; ?>
+
+															<div class="row mb-3 d-flex align-items-center tarefa">
+																<div class="col-sm-2"><?php echo $id ?></div>
+																<div class="col-sm-4"><?php echo $r['nomeracao'] ?></div>
+																<div class="col-sm-4"><?php echo $r['descricao'] ?></div>
+																<div class="col-sm-2 mt-2 d-flex justify-content-between">
+																	<i class="fas fa-edit fa-lg text-info"></i>
+																	<a href="../../Controller/RacaoController.php?operation=deletar&id=<?php echo "".$id ?>"><i class="fas fa-trash-alt fa-lg text-danger"></i></a>
+																</div>
+															</div>
+												<?php	}
+														unset($_SESSION['racoes']);
+													}
+												?>
+												
 											</div>
 										</div>
 									</div>

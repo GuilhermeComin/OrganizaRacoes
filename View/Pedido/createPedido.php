@@ -1,5 +1,8 @@
 <?php
 	session_start();
+	if (empty($_SESSION['usuario']) && empty($_SESSION['senha'])) {
+		header("location:../../index.php");
+	}
 ?>
 <html>
 	<head>
@@ -25,7 +28,7 @@
 		
 		<nav class="navbar navbar-light bg-light">
 			<div class="container">
-				<a class="navbar-brand" href="../../index.php">
+				<a class="navbar-brand" href="../app.php">
 					<img src="../../Include/img/logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="logo">
 					PEDIDOS DE RAÇÃO
 				</a>
@@ -35,11 +38,11 @@
 			<div class="row">
 				<div class="col-md-3 menu">
 					<ul class="list-group">
-                        <li class="list-group-item"><a href="../../index.php">Pedidos de Hoje</a></li>
+                        <li class="list-group-item"><a href="../app.php">Pedidos de Hoje</a></li>
 						<li class="list-group-item active"><a href="createPedido.php?operation=cadastrar">Novo Pedido</a></li>
 						<li class="list-group-item"><a href="../Produtor/createProdutor.php?operation=cadastrar">Novo Produtor</a></li>
                         <li class="list-group-item"><a href="../Racao/createRacao.php?operation=cadastrar">Novo Tipo de Ração</a></li> 
-						<li class="list-group-item" id="logout"><a href="../../login.php">Sair</a></li>  
+						<li class="list-group-item" id="logout"><a href="../../Controller/AuthController.php?operation=logout">Sair</a></li>  
 					</ul>
 				</div>
 				<div class="col-md-9">
@@ -94,7 +97,7 @@
 									</div>
 									<br>
 									<button type="submit" class="btn btn-success">Cadastrar</button>
-									<button class="btn btn-danger"><a class="abotao" href="../../index.php">Cancelar</a></button>
+									<button class="btn btn-danger"><a class="abotao" href="../app.php">Cancelar</a></button>
 									<button class="btn btn-info float-right"><a class="abotao" href="../../Controller/PedidoController.php?operation=listar">Listar Todos</a></button>
 								</form>
 							</div>

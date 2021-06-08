@@ -31,7 +31,12 @@
     }
 
     function deletar() {
-
+        $id = $_GET['id'];
+        if (isset($id)) {
+            $produtorDAO = new ProdutorDAO();
+            $produtorDAO->delete($id);
+            header("location:../../Controller/ProdutorController.php?operation=listar");
+        }
     }
     
     $operacao = $_GET['operation'];

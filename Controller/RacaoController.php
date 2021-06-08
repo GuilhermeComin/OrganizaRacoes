@@ -31,7 +31,12 @@
     }
 
     function deletar() {
-
+        $id = $_GET['id'];
+        if (isset($id)) {
+            $racaoDAO = new RacaoDAO();
+            $racaoDAO->delete($id);
+            header("location:../../Controller/RacaoController.php?operation=listar");
+        }
     }
     
     $operacao = $_GET['operation'];

@@ -1,5 +1,8 @@
 <?php
 	session_start();
+	if (empty($_SESSION['usuario']) && empty($_SESSION['senha'])) {
+		header("location:../../index.php");
+	}
 ?>
 <html>
 	<head>
@@ -27,7 +30,7 @@
 				<div class="col-md-2 menu">
 					<ul class="list-group">
 						<li class="list-group-item" id="voltar"><a href="../Produtor/createProdutor.php">Voltar</a></li>   
-						<li class="list-group-item" id="logout"><a href="../../login.php">Sair</a></li>                 
+						<li class="list-group-item" id="logout"><a href="../../Controller/AuthController.php?operation=logout">Sair</a></li>                 
 					</ul>
 				</div>
 
@@ -54,24 +57,26 @@
 										$produtores = unserialize($_SESSION['produtores']);
 										
 										foreach($produtores as $p) { 
-											$id = $p['idprodutor'];
-											$nome = $p['nomeprodutor'];
-											$cidade = $p['cidade'];
-											$suino = $p['tiposuino'];
-										}										
+											$id = $p['idprodutor'] ?>
+
+											<div class="row mb-3 d-flex align-items-center tarefa">
+												<div class="col-sm-2"><?php echo $id ?></div>
+												<div class="col-sm-3"><?php echo $p['nomeprodutor'] ?></div>
+												<div class="col-sm-3"><?php echo $p['cidade'] ?></div>
+												<div class="col-sm-2"><?php echo $p['descricao'] ?></div>
+												<div class="col-sm-2 mt-2 d-flex justify-content-between">
+													<i class="fas fa-edit fa-lg text-info"></i>
+													<a href="../../Controller/ProdutorController.php?operation=deletar&id=<?php echo "".$id ?>"><i class="fas fa-trash-alt fa-lg text-danger"></i></a>
+												</div>
+											</div>
+
+
+									<?php	}		
+										unset($_SESSION['racoes']);								
 									}
 								?>
 
-								<div class="row mb-3 d-flex align-items-center tarefa">
-                                    <div class="col-sm-2">1</div>
-                                    <div class="col-sm-3">Delvino Lorenzetti</div>
-                                    <div class="col-sm-3">Serafina Corrêa</div>
-                                    <div class="col-sm-2">Terminação</div>
-									<div class="col-sm-2 mt-2 d-flex justify-content-between">
-										<i class="fas fa-edit fa-lg text-info"></i>
-										<i class="fas fa-trash-alt fa-lg text-danger"></i>
-									</div>
-								</div>
+								
 							</div>
 						</div>
 					</div>

@@ -1,3 +1,10 @@
+CREATE TABLE usuario (
+	usuario			int					PRIMARY KEY,
+	senha			varchar(32)			NOT NULL
+);
+
+INSERT INTO usuario VALUES ('admin', 'admin123');
+
 CREATE TABLE tipoSuino (
 	idSuino			int					PRIMARY KEY,
 	descricao		varchar(100)		NOT NULL

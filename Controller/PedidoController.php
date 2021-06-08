@@ -41,12 +41,25 @@
         header("location:../View/Pedido/listPedido.php");
     }
 
+    function listaHoje() {
+        $pedidoDAO = new PedidoDAO();
+        $pedidos = $pedidoDAO->find();
+
+        $_SESSION['pedidos'] = serialize($pedidos);
+        header("location:../View/app.php?ok");
+    }
+
     function atualizar() {
 
     }
 
     function deletar() {
-
+        $id = $_GET['id'];
+        if (isset($id)) {
+            $pedidoDAO = new PedidoDAO();
+            $pedidoDAO->delete($id);
+            header("location:../../Controller/PedidoController.php?operation=listar");
+        }
     }
     
     $operacao = $_GET['operation'];
@@ -63,6 +76,9 @@
             break;
             case 'deletar';
             deletar();
+            break;
+            case 'hoje';
+            listaHoje();
             break;
         }
     }

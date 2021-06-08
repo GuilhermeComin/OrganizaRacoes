@@ -33,7 +33,8 @@
         public function search() {
             try {
                 $statement = $this->connection->prepare(
-                    "SELECT * FROM tipoRacao"
+                    "SELECT r.*, s.*
+                    FROM tipoRacao r INNER JOIN tipoSuino s ON r.tipoDestino = s.idsuino"
                 );
                 $statement->execute();
                 $dados = $statement->fetchAll();
@@ -42,6 +43,20 @@
                 return $dados;
             } catch (PDOException $e) {
                 echo "Ocorreram erros ao listar os produtores";
+                echo $e->getMessage();
+            }
+        }
+
+        public function delete($id) {
+            try {
+                $statement = $this->connection->prepare(
+                    "DELETE FROM tipoRacao WHERE idRacao = ?"
+                );
+                $statement->bindValue(1, $id);
+                $statement->execute();
+
+                $this->connection = null;
+            } catch (PDOException $e) {
                 echo $e->getMessage();
             }
         }

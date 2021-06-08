@@ -35,7 +35,11 @@
         public function search() {
             try {
                 $statement = $this->connection->prepare(
-                    "SELECT * FROM pedido"
+                    "SELECT p.*, t.*, r.*, pr.*
+                    FROM pedido p 
+                    INNER JOIN turnoPedido t ON p.turno = t.idTurno
+                    INNER JOIN tipoRacao r ON p.tipoRacao = r.idRacao
+                    INNER JOIN produtor pr ON p.produtor = pr.idProdutor;"
                 );
                 $statement->execute();
                 $dados = $statement->fetchAll();
@@ -44,6 +48,41 @@
                 return $dados;
             } catch (PDOException $e) {
                 echo "Ocorreram erros ao listar os produtores";
+                echo $e->getMessage();
+            }
+        }
+
+        public function find() {
+            try {
+                $statement = $this->connection->prepare(
+                    "SELECT p.*, t.*, r.*, pr.*
+                    FROM pedido p 
+                    INNER JOIN turnoPedido t ON p.turno = t.idTurno
+                    INNER JOIN tipoRacao r ON p.tipoRacao = r.idRacao
+                    INNER JOIN produtor pr ON p.produtor = pr.idProdutor
+                    WHERE data = CURRENT_DATE;"
+                );
+                $statement->execute();
+                $dados = $statement->fetchAll();
+                $this->connection = null;
+
+                return $dados;
+            } catch (PDOException $e) {
+                echo "Ocorreram erros ao listar os produtores";
+                echo $e->getMessage();
+            }
+        }
+
+        public function delete($id) {
+            try {
+                $statement = $this->connection->prepare(
+                    "DELETE FROM pedido WHERE idPedido = ?"
+                );
+                $statement->bindValue(1, $id);
+                $statement->execute();
+
+                $this->connection = null;
+            } catch (PDOException $e) {
                 echo $e->getMessage();
             }
         }
