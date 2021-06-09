@@ -42,13 +42,13 @@ INSERT INTO turnoPedido VALUES (3, 'Noite');
 
 CREATE TABLE pedido (
 	idPedido			serial			PRIMARY KEY,
-	produtor			int				NOT NULL,
-	tipoRacao			int				NOT NULL,
+	produtor			int				NOT NULL ,
+	tipoRacao			int				NOT NULL ,
 	peso				decimal(7,2)	NOT NULL,
 	data				date			NOT NULL,
 	turno				int				NOT NULL,
-	FOREIGN KEY (produtor) REFERENCES produtor(idProdutor),
-	FOREIGN KEY (tipoRacao) REFERENCES tipoRacao(idRacao),
+	FOREIGN KEY (produtor) REFERENCES produtor(idProdutor) ON DELETE CASCADE,
+	FOREIGN KEY (tipoRacao) REFERENCES tipoRacao(idRacao) ON DELETE CASCADE,
 	FOREIGN KEY (turno) REFERENCES turnoPedido(idTurno)
 );
 

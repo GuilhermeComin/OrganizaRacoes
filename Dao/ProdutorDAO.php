@@ -50,12 +50,13 @@
         public function delete($id) {
             try {
                 $statement = $this->connection->prepare(
-                    "DELETE FROM Produtor WHERE idProdutor = ?"
+                    "DELETE FROM produtor WHERE idprodutor = ?"
                 );
                 $statement->bindValue(1, $id);
                 $statement->execute();
 
                 $this->connection = null;
+
             } catch (PDOException $e) {
                 echo $e->getMessage();
             }

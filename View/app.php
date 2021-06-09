@@ -3,7 +3,7 @@
 	if (empty($_SESSION['usuario']) && empty($_SESSION['senha'])) {
 		header("location:../index.php");
 	}
-	if (empty($_GET) && (empty($_SESSION['pedidos']))) {
+	if (empty($_GET) or (empty($_SESSION['pedidoshoje']))) {
 	header("location:../../Controller/PedidoController.php?operation=hoje");
 	}
 ?>
@@ -56,10 +56,10 @@
 									</div>
 								</div>
 								<?php
-									if(isset($_SESSION['pedidos'])) {
+									if(isset($_SESSION['pedidoshoje'])) {
 										include_once 'Model/Pedido.php';
 
-										$pedidos = unserialize($_SESSION['pedidos']);
+										$pedidos = unserialize($_SESSION['pedidoshoje']);
 										
 										
 										foreach($pedidos as $p) { 	
@@ -72,11 +72,11 @@
 											<div class="col-sm-2"><?php echo $p['peso'] ?></div>
 											<div class="col-sm-2 mt-2 d-flex justify-content-between">
 												<i class="fas fa-edit fa-lg text-info"></i>
-												<a href="../../Controller/PedidoController.php?operation=deletar&id=<?php echo "".$id ?>"><i class="fas fa-trash-alt fa-lg text-danger"></i></a>
+												<a href="../../Controller/PedidoController.php?operation=deletarhj&id=<?php echo "".$id ?>"><i class="fas fa-trash-alt fa-lg text-danger"></i></a>
 											</div>
 										</div>
-									<?php	}		
-										unset($_SESSION['pedidos']);								
+									<?php	}	
+										unset($_SESSION['pedidoshoje']);									
 									}
 								?>							
 							</div>

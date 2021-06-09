@@ -3,6 +3,10 @@
 	if (empty($_SESSION['usuario']) && empty($_SESSION['senha'])) {
 		header("location:../../index.php");
 	}
+	if(empty($_SESSION['produtores'])) {
+		header("location:../../Controller/ProdutorController.php?operation=listar");
+	}
+
 ?>
 <html>
 	<head>
@@ -69,8 +73,6 @@
 													<a href="../../Controller/ProdutorController.php?operation=deletar&id=<?php echo "".$id ?>"><i class="fas fa-trash-alt fa-lg text-danger"></i></a>
 												</div>
 											</div>
-
-
 									<?php	}		
 										unset($_SESSION['racoes']);								
 									}

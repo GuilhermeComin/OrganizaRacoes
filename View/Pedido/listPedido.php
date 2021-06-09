@@ -3,7 +3,9 @@
 	if (empty($_SESSION['usuario']) && empty($_SESSION['senha'])) {
 		header("location:../../index.php");
 	}
-
+	if(empty($_SESSION['pedidos'])) {
+		header("location:../../Controller/PedidoController.php?operation=listar");
+	}
 ?>
 <html>
 	<head>
