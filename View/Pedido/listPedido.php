@@ -62,10 +62,12 @@
 										
 										
 										foreach($pedidos as $p) { 	
-											$id = $p['idpedido'] ?>
+											$id = $p['idpedido'];
+											$data = $p['data'];
+											$dataFormat = date("d/m/y", strtotime($data));?>
 											
 											<div class="row mb-3 d-flex align-items-center tarefa">
-											<div class="col-sm-2"><?php echo $p['data'] ?></div>
+											<div class="col-sm-2"><?php echo $dataFormat ?></div>
 											<div class="col-sm-2"><?php echo $p['nomeprodutor'] ?></div>
 											<div class="col-sm-2"><?php echo $p['cidade'] ?></div>
 											<div class="col-sm-2"><?php echo $p['idracao']." - ".$p['nomeracao'] ?></div>
