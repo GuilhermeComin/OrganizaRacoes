@@ -3,10 +3,9 @@
 	if (empty($_SESSION['usuario']) && empty($_SESSION['senha'])) {
 		header("location:../../index.php");
 	}
-	if(empty($_SESSION['produtores'])) {
-		header("location:../../Controller/ProdutorController.php?operation=listar");
+	if(empty($_SESSION['cidades'])) {
+		header("location:../../Controller/CidadeController.php?operation=listar");
 	}
-
 ?>
 <html>
 	<head>
@@ -22,7 +21,7 @@
 	<body>
 		<nav class="navbar navbar-light bg-light">
 			<div class="container">
-				<a class="navbar-brand" href="../../index.php">
+				<a class="navbar-brand" href="../app.php">
 					<img src="../../Include/img/logo.jpg" width="30" height="30" class="d-inline-block align-top" alt="logo">
 					PEDIDOS DE RAÇÃO
 				</a>
@@ -33,7 +32,7 @@
 			<div class="row">
 				<div class="col-md-2 menu">
 					<ul class="list-group">
-						<li class="list-group-item" id="voltar"><a href="../Produtor/createProdutor.php">Voltar</a></li>   
+						<li class="list-group-item" id="voltar"><a href="../Cidade/createCidade.php?">Voltar</a></li>   
 						<li class="list-group-item" id="logout"><a href="../../Controller/AuthController.php?operation=logout">Sair</a></li>                 
 					</ul>
 				</div>
@@ -42,43 +41,40 @@
 					<div class="container pagina">
 						<div class="row">
 							<div class="col">
-								<h4>Todos Produtores: </h4>
+								<h4>Todos os Pedidos: </h4>
 								<hr/>
 
 								<div class="row mb-3 d-flex align-items-center tarefa">
-                                    <div class="col-sm-2 font-weight-bold">Código</div>
-									<div class="col-sm-3 font-weight-bold">Nome</div>
-                                    <div class="col-sm-3 font-weight-bold">Cidade</div>
-                                    <div class="col-sm-2 font-weight-bold">Tipo de Suíno</div>
+                                    <div class="col-sm-2 font-weight-bold">ID</div>
+									<div class="col-sm-4 font-weight-bold">Cidade</div>
+                                    <div class="col-sm-4 font-weight-bold">Estado</div>
 									<div class="col-sm-2 mt-2 d-flex justify-content-between">
 									</div>
 								</div>
 
 								<?php
-									if(isset($_SESSION['produtores'])) {
-										include_once 'Model/Produtor.php';
+									if(isset($_SESSION['cidades'])) {
+										include_once 'Model/Cidade.php';
 
-										$produtores = unserialize($_SESSION['produtores']);
+										$cidades = unserialize($_SESSION['cidades']);
 										
-										foreach($produtores as $p) { 
-											$id = $p['idprodutor'] ?>
-
+										
+										foreach($cidades as $c) { 
+											$id = $c['idcidade']?>
+											
 											<div class="row mb-3 d-flex align-items-center tarefa">
-												<div class="col-sm-2"><?php echo $id ?></div>
-												<div class="col-sm-3"><?php echo $p['nomeprodutor'] ?></div>
-												<div class="col-sm-3"><?php echo $p['nomecidade'] ?></div>
-												<div class="col-sm-2"><?php echo $p['descricao'] ?></div>
-												<div class="col-sm-2 mt-2 d-flex justify-content-between">
-													<i class="fas fa-edit fa-lg text-info"></i>
-													<a href="../../Controller/ProdutorController.php?operation=deletar&id=<?php echo "".$id ?>"><i class="fas fa-trash-alt fa-lg text-danger"></i></a>
-												</div>
+											<div class="col-sm-2"><?php echo $id ?></div>
+											<div class="col-sm-4"><?php echo $c['nomecidade'] ?></div>
+											<div class="col-sm-4"><?php echo $c['estado'] ?></div>
+											<div class="col-sm-2 mt-2 d-flex justify-content-between">
+												<i class="fas fa-edit fa-lg text-info"></i>
+												<a href="../../Controller/CidadeController.php?operation=deletar&id=<?php echo "".$id ?>"><i class="fas fa-trash-alt fa-lg text-danger"></i></a>
 											</div>
+										</div>
 									<?php	}		
-										unset($_SESSION['racoes']);								
+										unset($_SESSION['cidades']);								
 									}
-								?>
-
-								
+								?>							
 							</div>
 						</div>
 					</div>

@@ -33,9 +33,10 @@
 				<div class="col-md-3 menu">
 					<ul class="list-group">
 						<li class="list-group-item active"><a href="#">Pedidos de Hoje</a></li>
-						<li class="list-group-item"><a href="../View/Pedido/createPedido.php?operation=cadastrar">Novo Pedido</a></li>
-						<li class="list-group-item"><a href="../View/Produtor/createProdutor.php?operation=cadastrar">Novo Produtor</a></li>
-                        <li class="list-group-item"><a href="../View/Racao/createRacao.php?operation=cadastrar">Novo Tipo de Ração</a></li>   
+						<li class="list-group-item"><a href="../View/Pedido/createPedido.php">Novo Pedido</a></li>
+						<li class="list-group-item"><a href="../View/Produtor/createProdutor.php">Novo Produtor</a></li>
+						<li class="list-group-item"><a href="../View/Cidade/createCidade.php">Nova Cidade</a></li>
+                        <li class="list-group-item"><a href="../View/Racao/createRacao.php">Novo Tipo de Ração</a></li>   
 						<li class="list-group-item" id="logout"><a href="../Controller/AuthController.php?operation=logout">Sair</a></li>                 
 					</ul>
 				</div>
@@ -49,8 +50,8 @@
 
 								<div class="row mb-3 d-flex align-items-center tarefa">
 									<div class="col-sm-3 font-weight-bold">Nome</div>
-									<div class="col-sm-3 font-weight-bold">Cidade</div>
-                                    <div class="col-sm-2 font-weight-bold">Ração</div>
+									<div class="col-sm-2 font-weight-bold">Cidade</div>
+                                    <div class="col-sm-3 font-weight-bold">Ração</div>
                                     <div class="col-sm-2 font-weight-bold">Peso</div>
 									<div class="col-sm-2 mt-2 d-flex justify-content-between">
 									</div>
@@ -63,13 +64,14 @@
 										
 										
 										foreach($pedidos as $p) { 	
-											$id = $p['idpedido'] ?>
+											$id = $p['idpedido'];
+											$peso = $p['peso'];?>
 											
 											<div class="row mb-3 d-flex align-items-center tarefa">
 											<div class="col-sm-3"><?php echo $p['nomeprodutor'] ?></div>
 											<div class="col-sm-2"><?php echo $p['cidade'] ?></div>
 											<div class="col-sm-3"><?php echo $p['idracao']." - ".$p['nomeracao'] ?></div>
-											<div class="col-sm-2"><?php echo $p['peso'] ?></div>
+											<div class="col-sm-2"><?php echo number_format("$peso",2,",",".") ?></div>
 											<div class="col-sm-2 mt-2 d-flex justify-content-between">
 												<i class="fas fa-edit fa-lg text-info"></i>
 												<a href="../../Controller/PedidoController.php?operation=deletarhj&id=<?php echo "".$id ?>"><i class="fas fa-trash-alt fa-lg text-danger"></i></a>

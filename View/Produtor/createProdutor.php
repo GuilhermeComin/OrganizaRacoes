@@ -29,9 +29,10 @@
 				<div class="col-md-3 menu">
 					<ul class="list-group">
                         <li class="list-group-item"><a href="../app.php">Pedidos de Hoje</a></li>
-						<li class="list-group-item"><a href="../Pedido/createPedido.php?operation=cadastrar">Novo Pedido</a></li>
-						<li class="list-group-item active"><a href="createProdutor.php?operation=cadastrar">Novo Produtor</a></li>
-                        <li class="list-group-item"><a href="../Racao/createRacao.php?operation=cadastrar">Novo Tipo de Ração</a></li>
+						<li class="list-group-item"><a href="../Pedido/createPedido.php">Novo Pedido</a></li>
+						<li class="list-group-item active"><a href="createProdutor.php">Novo Produtor</a></li>
+						<li class="list-group-item"><a href="../Cidade/createCidade.php">Nova Cidade</a></li>
+                        <li class="list-group-item"><a href="../Racao/createRacao.php">Novo Tipo de Ração</a></li>
 						<li class="list-group-item" id="logout"><a href="../../Controller/AuthController.php?operation=logout">Sair</a></li>   
 					</ul>
 				</div>
@@ -47,8 +48,24 @@
 										<label>Nome do Produtor: </label>
 										<input required type="text" name="txtprodutor" class="form-control" placeholder="Exemplo: Gustavo da Silva"> <br>
 										<label>Cidade: </label>
-										<input required type="text" name="txtcidade" class="form-control" placeholder="Exemplo: Marau"> <br>
-										<label>Tipo de suino que aloja: </label>
+										<select required name="txtcidade" class="custom-select">
+												<option value="" disabled selected>Selecione a Cidade</option>
+												<?php 
+													include_once 'Dao/CidadeDAO.php';
+													include_once 'Model/Cidade.php';
+
+													$cidadeDao = new CidadeDAO();
+													$cidades = $cidadeDao->search();
+
+													foreach($cidades as $c) { 															
+														$idc = $c['idcidade'];
+														$nomec = $c['nomecidade'];
+
+														echo "<option value='$idc'>$nomec</option>";														
+													} 
+												?>												
+											</select> <br>
+										<br><label>Tipo de suino que aloja: </label>
 										<select required name="txtsuino" class="custom-select">
 											<option value="" disabled selected>Selecione o tipo de suino</option>
 											<option value="1">Terminação</option>

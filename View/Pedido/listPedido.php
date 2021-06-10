@@ -64,14 +64,15 @@
 										foreach($pedidos as $p) { 	
 											$id = $p['idpedido'];
 											$data = $p['data'];
+											$peso = $p['peso'];
 											$dataFormat = date("d/m/y", strtotime($data));?>
 											
 											<div class="row mb-3 d-flex align-items-center tarefa">
 											<div class="col-sm-2"><?php echo $dataFormat ?></div>
 											<div class="col-sm-2"><?php echo $p['nomeprodutor'] ?></div>
-											<div class="col-sm-2"><?php echo $p['cidade'] ?></div>
+											<div class="col-sm-2"><?php echo $p['nomecidade'] ?></div>
 											<div class="col-sm-2"><?php echo $p['idracao']." - ".$p['nomeracao'] ?></div>
-											<div class="col-sm-2"><?php echo $p['peso'] ?></div>
+											<div class="col-sm-2"><?php echo number_format("$peso",2,",",".") ?></div>
 											<div class="col-sm-2 mt-2 d-flex justify-content-between">
 												<i class="fas fa-edit fa-lg text-info"></i>
 												<a href="../../Controller/PedidoController.php?operation=deletar&id=<?php echo "".$id ?>"><i class="fas fa-trash-alt fa-lg text-danger"></i></a>

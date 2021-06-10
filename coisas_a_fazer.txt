@@ -1,20 +1,11 @@
 integração banco
-    parte do login
-
-    listagem dos produtores
-    listagem das rações
-
-    listagem das rações e produtores para criar os pedidos
-
-    registro dos pedidos
-    listagem de todos pedidos
-
-    listagem dos pedidos filtrado por data
+   
 
 
 
-SELECT p.*, t.*, r.*, pr.*
+SELECT p.*, t.*, r.*, pr.*, c.*
 FROM pedido p 
-INNER JOIN turno t ON p.turno = t.idTurno
+INNER JOIN turnoPedido t ON p.turno = t.idTurno
 INNER JOIN tipoRacao r ON p.tipoRacao = r.idRacao
-INNER JOIN produtor pr ON p.produtor = pr.idProdutor;
+INNER JOIN produtor pr ON p.produtor = pr.idProdutor
+INNER JOIN cidade c ON pr.cidade = c.idCidade;

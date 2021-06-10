@@ -29,9 +29,10 @@
 				<div class="col-md-3 menu">
 					<ul class="list-group">
                         <li class="list-group-item"><a href="../app.php">Pedidos de Hoje</a></li>
-						<li class="list-group-item"><a href="../Pedido/createPedido.php?operation=cadastrar">Novo Pedido</a></li>
-						<li class="list-group-item"><a href="../Produtor/createProdutor.php?operation=cadastrar">Novo Produtor</a></li>
-                        <li class="list-group-item active"><a href="createRacao.php?operation=cadastrar">Novo Tipo de Ração</a></li> 
+						<li class="list-group-item"><a href="../Pedido/createPedido.php">Novo Pedido</a></li>
+						<li class="list-group-item"><a href="../Produtor/createProdutor.php">Novo Produtor</a></li>
+						<li class="list-group-item"><a href="../Cidade/createCidade.php">Nova Cidade</a></li>
+                        <li class="list-group-item active"><a href="createRacao.php">Novo Tipo de Ração</a></li> 
 						<li class="list-group-item" id="logout"><a href="../../Controller/AuthController.php?operation=logout">Sair</a></li>                  
 					</ul>
 				</div>

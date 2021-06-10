@@ -1,5 +1,5 @@
 CREATE TABLE usuario (
-	usuario			int					PRIMARY KEY,
+	usuario			varchar(32)			PRIMARY KEY,
 	senha			varchar(32)			NOT NULL
 );
 
@@ -8,6 +8,12 @@ INSERT INTO usuario VALUES ('admin', 'admin123');
 CREATE TABLE tipoSuino (
 	idSuino			int					PRIMARY KEY,
 	descricao		varchar(100)		NOT NULL
+);
+
+CREATE TABLE cidade (
+	idCidade		serial				PRIMARY KEY,
+	nomeCidade		varchar(100)		NOT NULL,
+	estado			varchar(100)		NOT NULL
 );
 
 INSERT INTO tipoSuino VALUES (1, 'Terminação');
@@ -19,19 +25,20 @@ CREATE TABLE tipoRacao (
 	idRacao				int				PRIMARY KEY,
 	nomeRacao			varchar(100)	NOT NULL,
 	tipoDestino			int				NOT NULL,
-	FOREIGN KEY (tipoDestino) REFERENCES tipoSuino (idSuino)
+	FOREIGN KEY (tipoDestino) REFERENCES tipoSuino (idSuino) ON DROP CASCADE
 );
 
 
 CREATE TABLE produtor (
 	idProdutor			serial			PRIMARY KEY,
 	nomeProdutor		varchar(100)	NOT NULL,
-	cidade				varchar(100)	NOT NULL,
+	cidade				int				NOT NULL,
 	tipoSuino			int				NOT NULL,
-	FOREIGN KEY (tipoSuino) REFERENCES tipoSuino(idSuino)
+	FOREIGN KEY (cidade) REFERENCES cidade(idCidade) ON DROP CASCADE,
+	FOREIGN KEY (tipoSuino) REFERENCES tipoSuino(idSuino) ON DROP CASCADE
 );
 
-CREATE TABLE turno (
+CREATE TABLE turnoPedido (
 	idTurno				int				PRIMARY KEY,
 	nomeTurno			varchar(5)		NOT NULL
 );
@@ -49,6 +56,6 @@ CREATE TABLE pedido (
 	turno				int				NOT NULL,
 	FOREIGN KEY (produtor) REFERENCES produtor(idProdutor) ON DELETE CASCADE,
 	FOREIGN KEY (tipoRacao) REFERENCES tipoRacao(idRacao) ON DELETE CASCADE,
-	FOREIGN KEY (turno) REFERENCES turnoPedido(idTurno)
+	FOREIGN KEY (turno) REFERENCES turnoPedido(idTurno) ON DROP CASCADE
 );
 

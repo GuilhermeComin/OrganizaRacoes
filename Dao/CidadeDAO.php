@@ -2,7 +2,7 @@
 
     require 'Persistence/ConnectionDB.php';
 
-    class ProdutorDAO {
+    class CidadeDAO {
 
         private $connection = null;
 
@@ -10,20 +10,20 @@
             $this->connection = ConnectionDB::getInstance();
         }
 
-        public function create ($produtor) {
+        public function create ($cidade) {
             try {
                 $statement = $this->connection->prepare(
-                    "INSERT INTO Produtor (nomeProdutor, cidade, tipoSuino) VALUES (?, ?, ?)"
+                    "INSERT INTO cidade (nomecidade, estado) VALUES (?, ?)"
                 );
 
-                $statement->bindValue(1, $produtor->nomeProdutor);
-                $statement->bindValue(2, $produtor->cidade);
-                $statement->bindValue(3, $produtor->tipoSuino);
+                $statement->bindValue(1, $cidade->nomecidade);
+                $statement->bindValue(2, $cidade->estado);
+
 
                 $statement->execute();
 
                 $this->connection = null;
-                
+
             } catch (PDOException $e) {
                 echo "Ocorreram erros ao inserir um novo produtor";
                 echo $e->getMessage();
@@ -33,10 +33,8 @@
         public function search() {
             try {
                 $statement = $this->connection->prepare(
-                    "SELECT p.*, s.*, c.*
-                    FROM produtor p 
-                    INNER JOIN tipoSuino s ON p.tipoSuino = s.idsuino
-                    INNER JOIN cidade c ON p.cidade = c.idcidade"
+                    "SELECT *
+                    FROM cidade"
                 );
                 $statement->execute();
                 $dados = $statement->fetchAll();
@@ -49,33 +47,15 @@
             }
         }
 
-        public function searchRacao() {
-            try {
-                $statement = $this->connection->prepare(
-                    "SELECT r.*, s.*
-                    FROM tipoRacao r INNER JOIN tipoSuino s ON r.tipoDestino = s.idsuino"
-                );
-                $statement->execute();
-                $dados = $statement->fetchAll();
-                $this->connection = null;
-
-                return $dados;
-            } catch (PDOException $e) {
-                echo "Ocorreram erros ao listar as rações";
-                echo $e->getMessage();
-            }
-        }
-
         public function delete($id) {
             try {
                 $statement = $this->connection->prepare(
-                    "DELETE FROM produtor WHERE idprodutor = ?"
+                    "DELETE FROM cidade WHERE idcidade = ?"
                 );
                 $statement->bindValue(1, $id);
                 $statement->execute();
 
                 $this->connection = null;
-
             } catch (PDOException $e) {
                 echo $e->getMessage();
             }
