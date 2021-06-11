@@ -2,17 +2,9 @@
     session_start();
 
     require ('Model/Pedido.php');
-    require ('Include/PedidoValidate.php');
     require ('Dao/PedidoDAO.php');
 
     function criar() {
-        $erros = array();
-
-        if (!PedidoValidate::testarData($_POST['txtdata'])) {
-                $erros[] = 'Data Inválida';
-        }
-
-        if (count($erros)== 0) {
 
             $pedido = new Pedido();
 
@@ -27,10 +19,6 @@
 
             header("location:../View/Pedido/createPedido.php");
             
-        } else {
-        echo "<script>alert('Data Inválida!');</script>";
-        }
-
     }
 
     function listar() {

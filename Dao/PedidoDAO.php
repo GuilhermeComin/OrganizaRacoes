@@ -40,7 +40,8 @@
                     INNER JOIN turnoPedido t ON p.turno = t.idTurno
                     INNER JOIN tipoRacao r ON p.tipoRacao = r.idRacao
                     INNER JOIN produtor pr ON p.produtor = pr.idProdutor
-                    INNER JOIN cidade c ON pr.cidade = c.idCidade"
+                    INNER JOIN cidade c ON pr.cidade = c.idCidade
+                    ORDER BY p.data"
                 );
                 $statement->execute();
                 $dados = $statement->fetchAll();

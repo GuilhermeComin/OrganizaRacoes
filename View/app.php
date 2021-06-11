@@ -45,9 +45,9 @@
 					<div class="container pagina">
 						<div class="row">
 							<div class="col">
+							<button class="btn btn-info float-right"><a class="abotao" href="../Controller/PedidoController.php?operation=listar">Ver Todos</a></button>
 								<h4>Pedidos: </h4>
 								<hr/>
-
 								<div class="row mb-3 d-flex align-items-center tarefa">
 									<div class="col-sm-3 font-weight-bold">Nome</div>
 									<div class="col-sm-2 font-weight-bold">Cidade</div>
@@ -68,20 +68,20 @@
 											$peso = $p['peso'];?>
 											
 											<div class="row mb-3 d-flex align-items-center tarefa">
-											<div class="col-sm-3"><?php echo $p['nomeprodutor'] ?></div>
-											<div class="col-sm-2"><?php echo $p['cidade'] ?></div>
-											<div class="col-sm-3"><?php echo $p['idracao']." - ".$p['nomeracao'] ?></div>
-											<div class="col-sm-2"><?php echo number_format("$peso",2,",",".") ?></div>
-											<div class="col-sm-2 mt-2 d-flex justify-content-left">
-												<a href="../../Controller/PedidoController.php?operation=deletarhj&id=<?php echo "".$id ?>"><i class="fas fa-trash-alt fa-lg text-danger"></i></a>
+												<div class="col-sm-3"><?php echo $p['nomeprodutor'] ?></div>
+												<div class="col-sm-2"><?php echo $p['cidade'] ?></div>
+												<div class="col-sm-3"><?php echo $p['idracao']." - ".$p['nomeracao'] ?></div>
+												<div class="col-sm-2"><?php echo number_format("$peso",2,",",".") ?></div>
+												<div class="col-sm-2 mt-2 d-flex justify-content-left">
+													<a href="../../Controller/PedidoController.php?operation=deletarhj&id=<?php echo "".$id ?>"><i class="fas fa-trash-alt fa-lg text-danger"></i></a>
+												</div>
 											</div>
-										</div>
-									<?php	}	
+								<?php	}	
 										unset($_SESSION['pedidoshoje']);									
 									}
 								?>							
 							</div>
-						</div>
+						</div>						
 					</div>
 				</div>
 			</div>

@@ -50,7 +50,8 @@
 					<div class="container pagina">
 						<div class="row">
 							<div class="col">
-							<?php if (empty($_GET)) { ?>
+							<?php if (empty($_GET)) { 
+								$hoje = date('Y-m-d');?>
 								<h4>Novo Pedido</h4>
 								<hr />
 
@@ -108,7 +109,7 @@
 											<div class="row">
 												<div class="col-lg-6">
 													<br><label>Data de entrega: </label>
-													<input required type="date" name="txtdata" class="form-control">
+													<input required type="date" name="txtdata" min="<?php echo $hoje ?>" class="form-control">
 												</div>
 												<div class="col-lg-6">
 													<br><label>Turno de Entrega: </label>
@@ -129,7 +130,8 @@
 								<?php } else if (isset($_GET['editar'])) {
 								$peso = $_GET['peso'];
 								$id = $_GET['id']; 
-								$data = $_GET['data']?>
+								$data = $_GET['data'];
+								$hoje = date('Y-m-d');?>
 								<h4>Editar Pedido</h4>
 								<hr />
 
@@ -187,7 +189,7 @@
 											<div class="row">
 												<div class="col-lg-6">
 													<br><label>Data de entrega: </label>
-													<input required type="date" name="txtdata" class="form-control" value="<?php echo $data?>">
+													<input required type="date" name="txtdata" min="<?php echo $hoje ?>" class="form-control" value="<?php echo $data?>">
 												</div>
 												<div class="col-lg-6">
 													<br><label>Turno de Entrega: </label>
