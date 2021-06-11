@@ -40,9 +40,12 @@
 					<div class="container pagina">
 						<div class="row">
 							<div class="col">
+							<?php 
+								if (empty($_GET)) { ?>
 								<h4>Nova Ração</h4>
 								<hr />
 
+								
 								<form action="../../Controller/RacaoController.php?operation=cadastrar" method="post" name="formRacao">
 									<div class="form-group">
 										<label>ID da ração:</label>
@@ -60,7 +63,30 @@
 									<button type="submit" class="btn btn-success">Cadastrar</button>
 									<button class="btn btn-danger"><a class="abotao" href="../app.php">Cancelar</a></button>
 									<button class="btn btn-info float-right"><a class="abotao" href="../../Controller/RacaoController.php?operation=listar">Listar Todos</a></button>
-								</form>
+									</form>
+								<?php } else if (isset($_GET['editar'])) {
+									$nome = $_GET['nome'];
+									$id = $_GET['id'];  ?>
+									<h4>Editar Ração</h4>
+								<hr />								 	 
+								<form action="../../Controller/RacaoController.php?operation=editar&id=<?php echo "".$id ?>" method="post" name="formRacao">
+									<div class="form-group">
+										<label>ID da ração:</label>
+										<input required type="number" name="txtidracao" class="form-control" value="<?php echo "$id" ?>"><br>
+										<label>Nome da ração:</label>
+										<input required type="text" name="txtnomeracao" class="form-control" value="<?php echo "$nome" ?>"><br>
+										<label>Destino:</label>
+										<select required name="txtdestino" class="custom-select">
+											<option value="" disabled selected>Selecione o tipo de Destino</option>
+											<option value="1">Terminação</option>
+											<option value="2">Creche</option>
+											<option value="3">Maternidade</option>
+										</select>
+									</div>
+									<button type="submit" class="btn btn-info">Editar</button>
+									<button class="btn btn-danger"><a class="abotao" href="../../Controller/RacaoController.php?operation=listar">Cancelar</a></button>
+									</form>
+								<?php } ?>
 							</div>
 						</div>
 					</div>
@@ -68,7 +94,4 @@
 			</div>
 		</div>
 	</body>
-</html>
-
-    </body>
 </html>

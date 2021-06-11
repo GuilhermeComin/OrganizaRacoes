@@ -53,6 +53,30 @@
             }
         }
 
+        public function update($pedido, $id) {
+            try {
+                $statement = $this->connection->prepare(
+                    "UPDATE pedido 
+                    SET produtor = ?, tiporacao = ?, peso = ?, data = ?, turno = ?
+                    WHERE idpedido = ?"
+                );
+
+                $statement->bindValue(1, $pedido->produtor);
+                $statement->bindValue(2, $pedido->tipoRacao);
+                $statement->bindValue(3, $pedido->peso);
+                $statement->bindValue(4, $pedido->data);
+                $statement->bindValue(5, $pedido->turno);
+                $statement->bindValue(6, $id);
+
+                $statement->execute();
+
+                $this->connection = null;
+            } catch (PDOException $e) {
+                echo "Ocorreram erros ao listar os produtores";
+                echo $e->getMessage();
+            }
+        }
+
         public function find() {
             try {
                 $statement = $this->connection->prepare(

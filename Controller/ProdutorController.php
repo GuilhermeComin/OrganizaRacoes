@@ -15,7 +15,7 @@
         $produtorDao = new ProdutorDAO();
         $produtorDao->create($produtor);
 
-        header("location:../View/Produtor/createProdutor.php?operation=cadastrar");
+        header("location:../View/Produtor/createProdutor.php");
     }
 
     function listar() {
@@ -27,7 +27,17 @@
     }
 
     function atualizar() {
+        $id = $_GET['id'];
+        $produtor = new Produtor();
 
+        $produtor->nomeProdutor = $_POST['txtprodutor'];
+        $produtor->cidade = $_POST['txtcidade'];
+        $produtor->tipoSuino = $_POST['txtsuino'];
+
+        $produtorDao = new ProdutorDAO();
+        $produtorDao->update($produtor, $id);
+
+        header("location:../View/Produtor/listProdutor.php");
     }
 
     function deletar() {
@@ -48,7 +58,7 @@
             case 'listar';
             listar();
             break;
-            case 'atualizar';
+            case 'editar';
             atualizar();
             break;
             case 'deletar';

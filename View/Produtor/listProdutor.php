@@ -69,12 +69,12 @@
 												<div class="col-sm-3"><?php echo $p['nomecidade'] ?></div>
 												<div class="col-sm-2"><?php echo $p['descricao'] ?></div>
 												<div class="col-sm-2 mt-2 d-flex justify-content-between">
-													<i class="fas fa-edit fa-lg text-info"></i>
+													<a href="createProdutor.php?editar&id=<?php echo "".$id."&nome=".$p['nomeprodutor']."&cidade=".$p['nomecidade']."&destino=".$p['idsuino']?>"><i class="fas fa-edit fa-lg text-info"></i>
 													<a href="../../Controller/ProdutorController.php?operation=deletar&id=<?php echo "".$id ?>"><i class="fas fa-trash-alt fa-lg text-danger"></i></a>
 												</div>
 											</div>
 									<?php	}		
-										unset($_SESSION['racoes']);								
+										unset($_SESSION['produtores']);								
 									}
 								?>
 

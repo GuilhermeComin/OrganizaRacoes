@@ -30,6 +30,29 @@
             }
         }
 
+        public function update ($produtor, $id) {
+            try {
+                $statement = $this->connection->prepare(
+                    "UPDATE Produtor 
+                    SET nomeProdutor = ?, cidade = ?, tipoSuino = ?
+                    WHERE idProdutor = ?"
+                );
+
+                $statement->bindValue(1, $produtor->nomeProdutor);
+                $statement->bindValue(2, $produtor->cidade);
+                $statement->bindValue(3, $produtor->tipoSuino);
+                $statement->bindValue(4, $id);
+
+                $statement->execute();
+
+                $this->connection = null;
+
+            } catch (PDOException $e) {
+                echo "Ocorreram erros ao atualizar um produtor";
+                echo $e->getMessage();
+            }
+        }
+
         public function search() {
             try {
                 $statement = $this->connection->prepare(

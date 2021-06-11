@@ -14,7 +14,7 @@
             $cidadeDAO = new CidadeDAO();
             $cidadeDAO->create($cidade);
 
-            header("location:../View/Cidade/createCidade.php?operation=cadastrar");
+            header("location:../View/Cidade/createCidade.php");
     }
 
     function listar() {
@@ -26,7 +26,16 @@
     }
 
     function atualizar() {
+        $cidade = new Cidade();
+        $id = $_GET['id'];
+            $cidade->nomecidade = $_POST['txtcidade'];
+            $cidade->estado = $_POST['txtestado'];
 
+
+            $cidadeDAO = new CidadeDAO();
+            $cidadeDAO->update($cidade, $id);
+
+            header("location:../View/Cidade/listCidade.php");
     }
 
     function deletar() {
@@ -47,7 +56,7 @@
             case 'listar';
             listar();
             break;
-            case 'atualizar';
+            case 'editar';
             atualizar();
             break;
             case 'deletar';

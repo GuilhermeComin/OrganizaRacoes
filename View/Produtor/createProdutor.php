@@ -40,6 +40,7 @@
 					<div class="container pagina">
 						<div class="row">
 							<div class="col">
+							<?php if (empty($_GET)) { ?>
 								<h4>Novo Produtor</h4>
 								<hr />
 
@@ -77,6 +78,45 @@
 									<button class="btn btn-danger"><a class="abotao" href="../app.php">Cancelar</a></button>
 									<button class="btn btn-info float-right"><a class="abotao" href="../../Controller/ProdutorController.php?operation=listar">Listar Todos</a></button>
 								</form>
+								<?php } else if (isset($_GET['editar'])) {
+								$nome = $_GET['nome'];
+								$id = $_GET['id']; ?>
+								<h4>Novo Produtor</h4>
+								<hr />
+								<form action="../../Controller/ProdutorController.php?operation=editar&id=<?php echo "".$id ?>" method="post" name="formProdutor">
+									<div class="form-group">
+										<label>Nome do Produtor: </label>
+										<input required type="text" name="txtprodutor" class="form-control" value="<?php echo $nome?>"> <br>
+										<label>Cidade: </label>
+										<select required name="txtcidade" class="custom-select">
+												<option value="" disabled selected>Selecione a Cidade</option>
+												<?php 
+													include_once 'Dao/CidadeDAO.php';
+													include_once 'Model/Cidade.php';
+
+													$cidadeDao = new CidadeDAO();
+													$cidades = $cidadeDao->search();
+
+													foreach($cidades as $c) { 															
+														$idc = $c['idcidade'];
+														$nomec = $c['nomecidade'];
+
+														echo "<option value='$idc'>$nomec</option>";														
+													} 
+												?>												
+											</select> <br>
+										<br><label>Tipo de suino que aloja: </label>
+										<select required name="txtsuino" class="custom-select">
+											<option value="" disabled selected>Selecione o tipo de suino</option>
+											<option value="1">Terminação</option>
+											<option value="2">Creche</option>
+											<option value="3">Maternidade</option>
+										</select>
+									</div>
+									<button type="submit" class="btn btn-info">Editar</button>
+									<button class="btn btn-danger"><a class="abotao" href="../../Controller/ProdutorController.php?operation=listar">Cancelar</a></button>
+								</form>
+								<?php } ?>
 							</div>
 						</div>
 					</div>

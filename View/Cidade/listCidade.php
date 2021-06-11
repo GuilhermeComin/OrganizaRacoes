@@ -32,7 +32,7 @@
 			<div class="row">
 				<div class="col-md-2 menu">
 					<ul class="list-group">
-						<li class="list-group-item" id="voltar"><a href="../Cidade/createCidade.php?">Voltar</a></li>   
+						<li class="list-group-item" id="voltar"><a href="../Cidade/createCidade.php">Voltar</a></li>   
 						<li class="list-group-item" id="logout"><a href="../../Controller/AuthController.php?operation=logout">Sair</a></li>                 
 					</ul>
 				</div>
@@ -67,7 +67,7 @@
 											<div class="col-sm-4"><?php echo $c['nomecidade'] ?></div>
 											<div class="col-sm-4"><?php echo $c['estado'] ?></div>
 											<div class="col-sm-2 mt-2 d-flex justify-content-between">
-												<i class="fas fa-edit fa-lg text-info"></i>
+												<a href="createCidade.php?editar&id=<?php echo "".$id."&nome=".$c['nomecidade']."&estado=".$c['estado']?>"><i class="fas fa-edit fa-lg text-info"></i>
 												<a href="../../Controller/CidadeController.php?operation=deletar&id=<?php echo "".$id ?>"><i class="fas fa-trash-alt fa-lg text-danger"></i></a>
 											</div>
 										</div>

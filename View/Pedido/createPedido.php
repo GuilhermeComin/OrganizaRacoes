@@ -50,6 +50,7 @@
 					<div class="container pagina">
 						<div class="row">
 							<div class="col">
+							<?php if (empty($_GET)) { ?>
 								<h4>Novo Pedido</h4>
 								<hr />
 
@@ -125,6 +126,85 @@
 										<button class="btn btn-info float-right"><a class="abotao" href="../../Controller/PedidoController.php?operation=listar">Listar Todos</a></button>
 									</div>
 								</form>
+								<?php } else if (isset($_GET['editar'])) {
+								$peso = $_GET['peso'];
+								$id = $_GET['id']; 
+								$data = $_GET['data']?>
+								<h4>Editar Pedido</h4>
+								<hr />
+
+								<form action="../../Controller/PedidoController.php?operation=editar&id=<?php echo "".$id ?>" method="post" name="formPedido">
+									<div class="form-group">
+										<label>Produtor: </label>
+											<select required name="txtprodutor" class="custom-select">
+												<option value="" disabled selected>Selecione o Produtor</option>
+												<?php 
+													include_once 'Dao/ProdutorDAO.php';
+													include_once 'Model/Produtor.php';
+
+													$produtorDao = new ProdutorDAO();
+													$produtores = $produtorDao->search();
+
+													foreach($produtores as $p) { 															
+														$idp = $p['idprodutor'];
+														$nomep = $p['nomeprodutor'];
+
+														echo "<option value='$idp'>$nomep</option>";														
+													} 
+												?>												
+											</select> <br>
+											<div class="row">
+												<div class="col-lg-9">
+													<br><label>Ração: </label>
+													<select required name="txttipoRacao" class="custom-select">
+														<option value="" disabled selected>Selecione a Ração</option>
+															<?php 
+																include_once 'Model/TipoRacao.php';
+
+																$racaoDao = new ProdutorDAO();
+																$racoes = $racaoDao->searchRacao();
+
+																foreach($racoes as $r) { 															
+																	$idr = $r['idracao'];
+																	$nomer = $r['nomeracao'];
+
+																	echo "<option value='$idr'>$nomer</option>";														
+																} 
+															?>
+													</select> <br>
+												</div>
+												<div class="col-lg-3">
+													<br><label>Quantidade em KGs: </label>
+													<div class="input-group">
+														<input name="txtpeso" required type="real" id="peso" class="form-control" value="<?php echo $peso?>">
+														<div class="input-group-append">
+															<span class="input-group-text">kg</span>
+														</div>
+													</div>
+												</div>
+											</div>
+
+											<div class="row">
+												<div class="col-lg-6">
+													<br><label>Data de entrega: </label>
+													<input required type="date" name="txtdata" class="form-control" value="<?php echo $data?>">
+												</div>
+												<div class="col-lg-6">
+													<br><label>Turno de Entrega: </label>
+													<select required name="txtturno" class="custom-select">
+														<option value="" disabled selected>Selecione o turno</option>
+														<option value="1">Manhã</option>
+														<option value="2">Tarde</option>
+														<option value="3">Noite</option>
+												</select> <br>
+												</div>	
+											</div>										
+										<br>
+										<button type="submit" class="btn btn-info">Cadastrar</button>
+										<button class="btn btn-danger"><a class="abotao" href="../../Controller/PedidoController.php?operation=listar">Cancelar</a></button>
+									</div>
+								</form>
+								<?php } ?>
 							</div>
 						</div>
 					</div>

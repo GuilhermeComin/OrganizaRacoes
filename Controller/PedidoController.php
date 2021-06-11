@@ -25,7 +25,7 @@
             $pedidoDAO = new PedidoDAO();
             $pedidoDAO->create($pedido);
 
-            header("location:../View/Pedido/createPedido.php?operation=cadastrar");
+            header("location:../View/Pedido/createPedido.php");
             
         } else {
         echo "<script>alert('Data Inválida!');</script>";
@@ -50,7 +50,19 @@
     }
 
     function atualizar() {
+        $id = $_GET['id'];
+        $pedido = new Pedido();
 
+        $pedido->produtor = $_POST['txtprodutor'];
+        $pedido->tipoRacao = $_POST['txttipoRacao'];
+        $pedido->peso = $_POST['txtpeso'];
+        $pedido->data = $_POST['txtdata'];
+        $pedido->turno = $_POST['txtturno'];
+
+        $pedidoDAO = new PedidoDAO();
+        $pedidoDAO->update($pedido, $id);
+
+        header("location:../View/Pedido/listPedido.php");
     }
 
     function deletar() {
@@ -81,7 +93,7 @@
             case 'listar';
             listar();
             break;
-            case 'atualizar';
+            case 'editar';
             atualizar();
             break;
             case 'deletar';

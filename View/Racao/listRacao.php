@@ -66,7 +66,7 @@
 																<div class="col-sm-4"><?php echo $r['nomeracao'] ?></div>
 																<div class="col-sm-4"><?php echo $r['descricao'] ?></div>
 																<div class="col-sm-2 mt-2 d-flex justify-content-between">
-																	<i class="fas fa-edit fa-lg text-info"></i>
+																	<a href="createRacao.php?editar&id=<?php echo "".$id."&nome=".$r['nomeracao']."&descricao=".$r['descricao'] ?>"><i class="fas fa-edit fa-lg text-info"></i>
 																	<a href="../../Controller/RacaoController.php?operation=deletar&id=<?php echo "".$id ?>"><i class="fas fa-trash-alt fa-lg text-danger"></i></a>
 																</div>
 															</div>

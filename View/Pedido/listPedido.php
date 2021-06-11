@@ -74,7 +74,7 @@
 											<div class="col-sm-2"><?php echo $p['idracao']." - ".$p['nomeracao'] ?></div>
 											<div class="col-sm-2"><?php echo number_format("$peso",2,",",".") ?></div>
 											<div class="col-sm-2 mt-2 d-flex justify-content-between">
-												<i class="fas fa-edit fa-lg text-info"></i>
+												<a href="createPedido.php?editar&id=<?php echo "".$id."&produtor=".$p['produtor']."&cidade=".$p['idcidade']."&racao=".$p['idracao']."&peso=".$p['peso']."&data=".$p['data']?>"><i class="fas fa-edit fa-lg text-info"></i>
 												<a href="../../Controller/PedidoController.php?operation=deletar&id=<?php echo "".$id ?>"><i class="fas fa-trash-alt fa-lg text-danger"></i></a>
 											</div>
 										</div>

@@ -15,7 +15,7 @@
         $racaoDAO = new RacaoDAO();
         $racaoDAO->create($racao);
 
-        header("location:../View/Racao/createRacao.php?operation=cadastrar");
+        header("location:../View/Racao/createRacao.php");
     }
 
     function listar() {
@@ -27,7 +27,18 @@
     }
 
     function atualizar() {
+        $id = $_GET['id'];
+        $racao = new TipoRacao();
 
+        $racao->idRacao = $_POST['txtidracao'];
+        $racao->nomeRacao = $_POST['txtnomeracao'];
+        $racao->tipoDestino = $_POST['txtdestino'];
+
+
+        $racaoDAO = new RacaoDAO();
+        $racaoDAO->update($racao, $id);
+
+        header("location:../View/Racao/listRacao.php");
     }
 
     function deletar() {
@@ -48,7 +59,7 @@
             case 'listar';
             listar();
             break;
-            case 'atualizar';
+            case 'editar';
             atualizar();
             break;
             case 'deletar';

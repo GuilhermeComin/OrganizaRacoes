@@ -34,7 +34,8 @@
             try {
                 $statement = $this->connection->prepare(
                     "SELECT r.*, s.*
-                    FROM tipoRacao r INNER JOIN tipoSuino s ON r.tipoDestino = s.idsuino"
+                    FROM tipoRacao r INNER JOIN tipoSuino s ON r.tipoDestino = s.idsuino
+                    ORDER BY idracao"
                 );
                 $statement->execute();
                 $dados = $statement->fetchAll();
@@ -43,6 +44,29 @@
                 return $dados;
             } catch (PDOException $e) {
                 echo "Ocorreram erros ao listar os produtores";
+                echo $e->getMessage();
+            }
+        }
+
+        public function update ($racao, $id) {
+            try {
+                $statement = $this->connection->prepare(
+                    "UPDATE  tipoRacao 
+                    SET idRacao = ?, nomeRacao = ?, tipoDestino = ?
+                    WHERE idRacao = ?" 
+                );
+
+                $statement->bindValue(1, $racao->idRacao);
+                $statement->bindValue(2, $racao->nomeRacao);
+                $statement->bindValue(3, $racao->tipoDestino);
+                $statement->bindValue(4, $id);
+
+                $statement->execute();
+
+                $this->connection = null;
+
+            } catch (PDOException $e) {
+                echo "Ocorreram erros ao atualizar a Ração";
                 echo $e->getMessage();
             }
         }

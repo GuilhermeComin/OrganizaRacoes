@@ -25,7 +25,31 @@
                 $this->connection = null;
 
             } catch (PDOException $e) {
-                echo "Ocorreram erros ao inserir um novo produtor";
+                echo "Ocorreram erros ao inserir uma nova cidade";
+                echo $e->getMessage();
+            }
+        }
+
+        public function update ($cidade, $id) {
+            try {
+                $statement = $this->connection->prepare(
+                    "UPDATE cidade
+                    SET nomecidade = ?, estado = ?
+                    WHERE idcidade = ?"
+                );
+
+                $statement->bindValue(1, $cidade->nomecidade);
+                $statement->bindValue(2, $cidade->estado);
+                $statement->bindValue(3, $id);
+
+
+
+                $statement->execute();
+
+                $this->connection = null;
+
+            } catch (PDOException $e) {
+                echo "Ocorreram erros ao atualizar uma cidade";
                 echo $e->getMessage();
             }
         }
