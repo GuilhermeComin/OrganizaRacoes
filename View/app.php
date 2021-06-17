@@ -69,7 +69,7 @@
 											
 											<div class="row mb-3 d-flex align-items-center tarefa">
 												<div class="col-sm-3"><?php echo $p['nomeprodutor'] ?></div>
-												<div class="col-sm-2"><?php echo $p['cidade'] ?></div>
+												<div class="col-sm-2"><?php echo $p['nomecidade'] ?></div>
 												<div class="col-sm-3"><?php echo $p['idracao']." - ".$p['nomeracao'] ?></div>
 												<div class="col-sm-2"><?php echo number_format("$peso",2,",",".") ?></div>
 												<div class="col-sm-2 mt-2 d-flex justify-content-left">

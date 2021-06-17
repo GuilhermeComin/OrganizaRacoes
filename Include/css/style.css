@@ -9,6 +9,7 @@
 .pagina {
 	border:solid 1px #DFDFDF;
 	padding:25px !important;
+	border-radius: 15px;
 }
 
 li.list-group-item.active {
@@ -50,6 +51,7 @@ h4 {
 	text-align: center;
 	font-size: large;
 	margin-top: 25px;
+	border-radius: 15px;
 }
 
 #logout:hover {
