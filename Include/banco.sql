@@ -8,7 +8,7 @@ CREATE TABLE usuario (
 -- UPDATE usuario
 -- SET usuario = 'usuario que deseja', senha = 'senha que deseja'
 
-INSERT INTO usuario VALUES ('admin', 'admin123');
+INSERT INTO usuario VALUES ('admin', md5('admin123'));
 
 CREATE TABLE tipoSuino (
 	idSuino			int					PRIMARY KEY,

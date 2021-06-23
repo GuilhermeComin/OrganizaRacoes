@@ -14,7 +14,7 @@
         public function find($usuario, $senha) {
             try {
                 $statement = $this->connection->prepare(
-                    "SELECT * FROM usuario WHERE usuario = ? and senha = ?"
+                    "SELECT * FROM usuario WHERE usuario = ? and senha = md5(?)"
                 );
                 $statement->bindValue(1, $usuario);
                 $statement->bindValue(2, $senha);
