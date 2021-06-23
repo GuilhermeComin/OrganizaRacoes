@@ -4,7 +4,7 @@
     require ('Model/TipoRacao.php');
     require ('Dao/RacaoDAO.php');
 
-
+    //Função de create das rações
     function criar() {
         $racao = new TipoRacao();
 
@@ -15,9 +15,10 @@
         $racaoDAO = new RacaoDAO();
         $racaoDAO->create($racao);
 
-        header("location:../View/Racao/createRacao.php");
+        header("location:../View/Racao/createRacao.php?inserir=1");
     }
 
+    //Função de read das rações
     function listar() {
         $racaoDAO = new RacaoDAO();
         $racoes = $racaoDAO->search();
@@ -26,6 +27,7 @@
         header("location:../View/Racao/listRacao.php");
     }
 
+    //Função de update das rações
     function atualizar() {
         $id = $_GET['id'];
         $racao = new TipoRacao();
@@ -41,6 +43,7 @@
         header("location:../View/Racao/listRacao.php");
     }
 
+    //Função de delete das rações
     function deletar() {
         $id = $_GET['id'];
         if (isset($id)) {
@@ -49,7 +52,8 @@
             header("location:../../Controller/RacaoController.php?operation=listar");
         }
     }
-    
+
+    //Switch para pegar a operação 
     $operacao = $_GET['operation'];
     if (isset($operacao)) {
         switch($operacao) {

@@ -3,6 +3,11 @@ CREATE TABLE usuario (
 	senha			varchar(32)			NOT NULL
 );
 
+--Caso deseje alterar o usuário
+
+-- UPDATE usuario
+-- SET usuario = 'usuario que deseja', senha = 'senha que deseja'
+
 INSERT INTO usuario VALUES ('admin', 'admin123');
 
 CREATE TABLE tipoSuino (
@@ -16,6 +21,7 @@ CREATE TABLE cidade (
 	estado			varchar(100)		NOT NULL
 );
 
+--Tipos de suínos já são definidos como padrão estes 3
 INSERT INTO tipoSuino VALUES (1, 'Terminação');
 INSERT INTO tipoSuino VALUES (2, 'Creche');
 INSERT INTO tipoSuino VALUES (3, 'Maternidade');
@@ -43,6 +49,7 @@ CREATE TABLE turnoPedido (
 	nomeTurno			varchar(5)		NOT NULL
 );
 
+--Turnos já são definidos como padrão estes 3
 INSERT INTO turnoPedido VALUES (1, 'Manhã');
 INSERT INTO turnoPedido VALUES (2, 'Tarde');
 INSERT INTO turnoPedido VALUES (3, 'Noite');

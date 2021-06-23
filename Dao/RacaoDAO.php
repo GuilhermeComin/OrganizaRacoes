@@ -10,6 +10,7 @@
             $this->connection = ConnectionDB::getInstance();
         }
 
+        //Função que realiza o insert das rações no banco
         public function create ($racao) {
             try {
                 $statement = $this->connection->prepare(
@@ -30,6 +31,7 @@
             }
         }
 
+        //Função que realiza o select de todas as rações no banco
         public function search() {
             try {
                 $statement = $this->connection->prepare(
@@ -48,6 +50,7 @@
             }
         }
 
+        //Função que realiza o update das rações no banco
         public function update ($racao, $id) {
             try {
                 $statement = $this->connection->prepare(
@@ -71,6 +74,7 @@
             }
         }
 
+        //Função que realiza o delete das rações no banco
         public function delete($id) {
             try {
                 $statement = $this->connection->prepare(

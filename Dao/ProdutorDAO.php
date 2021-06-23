@@ -10,6 +10,7 @@
             $this->connection = ConnectionDB::getInstance();
         }
 
+        //Função que realiza o insert dos produtores no banco
         public function create ($produtor) {
             try {
                 $statement = $this->connection->prepare(
@@ -30,6 +31,7 @@
             }
         }
 
+        //Função que realiza o update dos produtores no banco
         public function update ($produtor, $id) {
             try {
                 $statement = $this->connection->prepare(
@@ -53,6 +55,7 @@
             }
         }
 
+        //Função que realiza o select de todos os produtores no banco
         public function search() {
             try {
                 $statement = $this->connection->prepare(
@@ -72,6 +75,7 @@
             }
         }
 
+        //Função que realiza o select de todas as rações no banco (solução para futuro conflito no app)
         public function searchRacao() {
             try {
                 $statement = $this->connection->prepare(
@@ -89,6 +93,7 @@
             }
         }
 
+        //Função que realiza o delete dos produtores no banco
         public function delete($id) {
             try {
                 $statement = $this->connection->prepare(
@@ -100,6 +105,7 @@
                 $this->connection = null;
 
             } catch (PDOException $e) {
+                echo "Ocorreram erros ao deletar o produtor";
                 echo $e->getMessage();
             }
         }

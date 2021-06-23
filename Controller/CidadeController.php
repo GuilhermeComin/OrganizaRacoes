@@ -4,6 +4,7 @@
     require ('Model/Cidade.php');
     require ('Dao/CidadeDAO.php');
 
+    //Função de create de nova cidade
     function criar() {
             $cidade = new Cidade();
 
@@ -14,9 +15,10 @@
             $cidadeDAO = new CidadeDAO();
             $cidadeDAO->create($cidade);
 
-            header("location:../View/Cidade/createCidade.php");
+            header("location:../View/Cidade/createCidade.php?inserir=1");
     }
 
+    //Função de read das cidades
     function listar() {
         $cidadeDAO = new CidadeDAO();
         $cidades = $cidadeDAO->search();
@@ -25,6 +27,7 @@
         header("location:../View/Cidade/listCidade.php");
     }
 
+    //Função de update das cidades
     function atualizar() {
         $cidade = new Cidade();
         $id = $_GET['id'];
@@ -38,6 +41,7 @@
             header("location:../View/Cidade/listCidade.php");
     }
 
+    //Função de delete das cidades
     function deletar() {
         $id = $_GET['id'];
         if (isset($id)) {
@@ -47,6 +51,7 @@
         }
     }
     
+    //Switch para pegar a operação
     $operacao = $_GET['operation'];
     if (isset($operacao)) {
         switch($operacao) {

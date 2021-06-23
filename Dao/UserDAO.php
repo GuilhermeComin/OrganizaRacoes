@@ -10,9 +10,7 @@
             $this->connection = ConnectionDB::getInstance();
         }
 
-        public function create ($user) {
-        }
-
+        //Função que realiza a busca do usuário para futura verificação do login
         public function find($usuario, $senha) {
             try {
                 $statement = $this->connection->prepare(

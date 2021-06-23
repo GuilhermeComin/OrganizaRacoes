@@ -6,7 +6,8 @@
         public function __construct($dsn, $usuario, $senha) {
             parent::__construct($dsn, $usuario, $senha);
         }
-            
+        
+        //Função que realiza um set da instancia com o banco
         public static function getInstance() {
             if (!isset(self::$instance)) {
                 try {

@@ -1,5 +1,6 @@
 <?php
 	session_start();
+	//Verifica se o usuário está logado
 	if (empty($_SESSION['usuario']) && empty($_SESSION['senha'])) {
 		header("location:../../index.php");
 	}
@@ -10,12 +11,14 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Pedidos</title>
 
+		<!-- CSS/BOOTSTRAP/FONT AWESOME -->
 		<link rel="stylesheet" href="../../Include/css/style.css">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 	</head>
 
 	<body>
+		<!-- "header" do app -->
 		<nav class="navbar navbar-light bg-light">
 			<div class="container">
 				<a class="navbar-brand" href="../app.php">
@@ -24,8 +27,17 @@
 				</a>
 			</div>
 		</nav>
+
+		<!-- Feedback de inserção concluída -->
+		<?php 	if (isset($_GET['inserir']) && ($_GET['inserir'] == 1)) { ?>
+					<div class="bg-success pt-2 text-white d-flex justify-content-center">
+					<h5>Inserido com sucesso!</h5>
+				  </div>
+		<?php 	} ?>
+		
         <div class="container app">
 			<div class="row">
+				<!-- Menu -->
 				<div class="col-md-3 menu">
 					<ul class="list-group">
                         <li class="list-group-item"><a href="../app.php">Pedidos de Hoje</a></li>
@@ -36,16 +48,17 @@
 						<li class="list-group-item" id="logout"><a href="../../Controller/AuthController.php?operation=logout">Sair</a></li>                  
 					</ul>
 				</div>
+
+				<!-- Tela do form -->
 				<div class="col-md-9">
 					<div class="container pagina">
 						<div class="row">
 							<div class="col">
-							<?php 
-								if (empty($_GET)) { ?>
+							<!-- Verificação do GET para saber se é para editar ou criar -->
+							<?php if (empty($_GET) or (isset($_GET['inserir']))) { ?>
 								<h4>Nova Ração</h4>
-								<hr />
-
-								
+								<hr />		
+								<!-- Form de criar uma nova ração -->						
 								<form action="../../Controller/RacaoController.php?operation=cadastrar" method="post" name="formRacao">
 									<div class="form-group">
 										<label>ID da ração:</label>
@@ -63,12 +76,14 @@
 									<button type="submit" class="btn btn-success">Cadastrar</button>
 									<button class="btn btn-danger"><a class="abotao" href="../app.php">Cancelar</a></button>
 									<button class="btn btn-info float-right"><a class="abotao" href="../../Controller/RacaoController.php?operation=listar">Listar Todos</a></button>
-									</form>
+								</form>
+								<!-- Verificação do GET para saber se é para editar ou criar -->
 								<?php } else if (isset($_GET['editar'])) {
 									$nome = $_GET['nome'];
 									$id = $_GET['id'];  ?>
 									<h4>Editar Ração</h4>
-								<hr />								 	 
+								<hr />			
+								<!-- Form de editar uma ração -->					 	 
 								<form action="../../Controller/RacaoController.php?operation=editar&id=<?php echo "".$id ?>" method="post" name="formRacao">
 									<div class="form-group">
 										<label>ID da ração:</label>

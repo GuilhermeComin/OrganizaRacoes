@@ -10,6 +10,7 @@
             $this->connection = ConnectionDB::getInstance();
         }
 
+        //Função que faz o insert dos pedidos no banco
         public function create ($pedido) {
             try {
                 $statement = $this->connection->prepare(
@@ -27,11 +28,12 @@
                 $this->connection = null;
 
             } catch (PDOException $e) {
-                echo "Ocorreram erros ao inserir um novo produtor";
+                echo "Ocorreram erros ao inserir um novo pedido";
                 echo $e->getMessage();
             }
         }
 
+        //Função que realiza um select nos pedidos, realizando alguns inner joins para apresentação de outros resultados necessários nas telas visuais
         public function search() {
             try {
                 $statement = $this->connection->prepare(
@@ -49,11 +51,12 @@
 
                 return $dados;
             } catch (PDOException $e) {
-                echo "Ocorreram erros ao listar os produtores";
+                echo "Ocorreram erros ao listar os pedidos";
                 echo $e->getMessage();
             }
         }
 
+        //Função que realiza o update da ração no banco
         public function update($pedido, $id) {
             try {
                 $statement = $this->connection->prepare(
@@ -73,11 +76,12 @@
 
                 $this->connection = null;
             } catch (PDOException $e) {
-                echo "Ocorreram erros ao listar os produtores";
+                echo "Ocorreram erros ao atualizar os pedidos";
                 echo $e->getMessage();
             }
         }
 
+        //Função que faz um select dos pedidos e outras tabelas somente na data de hoje 
         public function find() {
             try {
                 $statement = $this->connection->prepare(
@@ -95,11 +99,12 @@
 
                 return $dados;
             } catch (PDOException $e) {
-                echo "Ocorreram erros ao listar os produtores";
+                echo "Ocorreram erros ao listar os pedidos";
                 echo $e->getMessage();
             }
         }
 
+        //Função que realiza o delete dos pedidos no banco 
         public function delete($id) {
             try {
                 $statement = $this->connection->prepare(
@@ -110,6 +115,7 @@
 
                 $this->connection = null;
             } catch (PDOException $e) {
+                echo "Ocorreram erros ao deletar o pedido";
                 echo $e->getMessage();
             }
         }

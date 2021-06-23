@@ -4,7 +4,7 @@
     require ('Model/Produtor.php');
     require ('Dao/ProdutorDAO.php');
 
-
+    //Função de create do produtor
     function criar() {
         $produtor = new Produtor();
 
@@ -15,9 +15,10 @@
         $produtorDao = new ProdutorDAO();
         $produtorDao->create($produtor);
 
-        header("location:../View/Produtor/createProdutor.php");
+        header("location:../View/Produtor/createProdutor.php?inserir=1");
     }
 
+    //Função do read dos produtores
     function listar() {
         $produtorDAO = new ProdutorDAO();
         $produtores = $produtorDAO->search();
@@ -26,6 +27,7 @@
         header("location:../View/Produtor/listProdutor.php");
     }
 
+    //Função do update dos produtores
     function atualizar() {
         $id = $_GET['id'];
         $produtor = new Produtor();
@@ -40,6 +42,7 @@
         header("location:../View/Produtor/listProdutor.php");
     }
 
+    //Função do delete dos produtores
     function deletar() {
         $id = $_GET['id'];
         if (isset($id)) {
@@ -49,6 +52,7 @@
         }
     }
     
+    //Switch para pegar a operação 
     $operacao = $_GET['operation'];
     if (isset($operacao)) {
         switch($operacao) {
