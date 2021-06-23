@@ -35,7 +35,7 @@
         public function search() {
             try {
                 $statement = $this->connection->prepare(
-                    "SELECT p.*, t.*, r.*, pr.*, c.*
+                    "SELECT *
                     FROM pedido p 
                     INNER JOIN turnoPedido t ON p.turno = t.idTurno
                     INNER JOIN tipoRacao r ON p.tipoRacao = r.idRacao
@@ -81,11 +81,12 @@
         public function find() {
             try {
                 $statement = $this->connection->prepare(
-                    "SELECT p.*, t.*, r.*, pr.*
+                    "SELECT *
                     FROM pedido p 
                     INNER JOIN turnoPedido t ON p.turno = t.idTurno
                     INNER JOIN tipoRacao r ON p.tipoRacao = r.idRacao
                     INNER JOIN produtor pr ON p.produtor = pr.idProdutor
+                    INNER JOIN cidade c ON pr.cidade = c.idCidade
                     WHERE data = CURRENT_DATE;"
                 );
                 $statement->execute();

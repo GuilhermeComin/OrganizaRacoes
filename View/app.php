@@ -65,7 +65,7 @@
 										
 										foreach($pedidos as $p) { 	
 											$id = $p['idpedido'];
-											$peso = $p['peso'];?>
+											$peso = $p['peso']; ?>
 											
 											<div class="row mb-3 d-flex align-items-center tarefa">
 												<div class="col-sm-3"><?php echo $p['nomeprodutor'] ?></div>

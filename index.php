@@ -25,7 +25,6 @@
                             <p class="text-muted"> Por favor insira seu usuário e senha!</p>
                             <input required type="text" name="txtusuario" placeholder="Usuário"> 
                             <input required type="password" name="txtsenha" placeholder="Senha"> 
-                            <a class="forgot text-muted" href="#">Esqueceu sua senha?</a> 
                             <input type="submit" value="Login">                           
                         </form>
                     </div>

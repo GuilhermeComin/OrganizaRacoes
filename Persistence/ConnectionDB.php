@@ -11,7 +11,7 @@
             if (!isset(self::$instance)) {
                 try {
                     self::$instance = new ConnectionDB(
-                        "pgsql:dbname=testePedido;host=localhost",
+                        "pgsql:dbname=controleRacoes;host=localhost",
                         "postgres",
                         "masterkey"
                     );

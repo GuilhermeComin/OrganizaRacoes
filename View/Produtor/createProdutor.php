@@ -81,7 +81,7 @@
 								<?php } else if (isset($_GET['editar'])) {
 								$nome = $_GET['nome'];
 								$id = $_GET['id']; ?>
-								<h4>Novo Produtor</h4>
+								<h4>Editar Produtor</h4>
 								<hr />
 								<form action="../../Controller/ProdutorController.php?operation=editar&id=<?php echo "".$id ?>" method="post" name="formProdutor">
 									<div class="form-group">

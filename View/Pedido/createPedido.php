@@ -206,7 +206,7 @@ date_default_timezone_set('America/Sao_Paulo');
 											</div>
 										</div>
 										<br>
-										<button type="submit" class="btn btn-info">Cadastrar</button>
+										<button type="submit" class="btn btn-info">Editar</button>
 										<button class="btn btn-danger"><a class="abotao" href="../../Controller/PedidoController.php?operation=listar">Cancelar</a></button>
 									</div>
 								</form>
