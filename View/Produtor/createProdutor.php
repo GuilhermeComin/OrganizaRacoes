@@ -105,8 +105,8 @@
 										<label>Nome do Produtor: </label>
 										<input required type="text" name="txtprodutor" class="form-control" value="<?php echo $nome?>"> <br>
 										<label>Cidade: </label>
-										<select required name="txtcidade" class="custom-select">
-												<option value="" disabled selected>Selecione a Cidade</option>
+										<select required name="txtcidade" class="custom-select" id="selecteditc">
+												<option value="" disabled>Selecione a Cidade</option>
 												<?php 
 													include_once 'Dao/CidadeDAO.php';
 													include_once 'Model/Cidade.php';
@@ -123,8 +123,8 @@
 												?>												
 											</select> <br>
 										<br><label>Tipo de suino que aloja: </label>
-										<select required name="txtsuino" class="custom-select">
-											<option value="" disabled selected>Selecione o tipo de suino</option>
+										<select required name="txtsuino" class="custom-select" id="selecteditd">
+											<option value="" disabled>Selecione o tipo de suino</option>
 											<option value="1">Terminação</option>
 											<option value="2">Creche</option>
 											<option value="3">Maternidade</option>
@@ -141,7 +141,14 @@
 			</div>
 		</div>
 	</body>
-</html>
+	<script>
+		//Função para fazer um GET na url em JS
+		const urlParams = new URLSearchParams(window.location.search);
+		var destino = urlParams.get('destino');
+		var cidade = urlParams.get('cidade');
 
-    </body>
+		//Setar o select com o valor recebido
+		document.getElementById('selecteditd').value = destino;
+		document.getElementById('selecteditc').value = cidade;
+	</script>
 </html>

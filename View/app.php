@@ -8,6 +8,7 @@
 	if (empty($_GET) or (empty($_SESSION['pedidoshoje']))) {
 	header("location:../../Controller/PedidoController.php?operation=hoje");
 	}
+	$ped = unserialize($_SESSION['pedidoshoje']);
 ?>
 <html>
 	<head>
@@ -54,46 +55,51 @@
 							<button class="btn btn-info float-right"><a class="abotao" href="../Controller/PedidoController.php?operation=listar">Ver Todos</a></button>
 								<h4>Pedidos: </h4>
 								<hr/>
-
-								<!-- Títulos das colunas -->
-								<div class="row mb-3 d-flex align-items-center tarefa">
-									<div class="col-sm-2 font-weight-bold">Nome</div>
-									<div class="col-sm-2 font-weight-bold">Cidade</div>
-                                    <div class="col-sm-3 font-weight-bold">Ração</div>
-                                    <div class="col-sm-2 font-weight-bold">Peso</div>
-									<div class="col-sm-2 font-weight-bold">Turno</div>
-									<div class="col-sm-2 mt-2 d-flex justify-content-between">
-									</div>
-								</div>
-
-								<?php
-									//Verificação se a variável de sessão está setada
-									if(isset($_SESSION['pedidoshoje'])) {
-										include_once 'Model/Pedido.php';
-
-										$pedidos = unserialize($_SESSION['pedidoshoje']);
-										
-										//Loop de apresentação de dados
-										foreach($pedidos as $p) { 	
-											$id = $p['idpedido'];
-											$peso = $p['peso']; ?>
-											
-											<div class="row mb-3 d-flex align-items-center tarefa">
-												<div class="col-sm-2"><?php echo $p['nomeprodutor'] ?></div>
-												<div class="col-sm-2"><?php echo $p['nomecidade'] ?></div>
-												<div class="col-sm-3"><?php echo $p['idracao']." - ".$p['nomeracao'] ?></div>
-												<div class="col-sm-2"><?php echo number_format("$peso",2,",",".") ?></div>
-												<div class="col-sm-2"><?php echo $p['nometurno'] ?></div>
-												<div class="col-sm d-flex justify-content-left">
-													<a href="../../Controller/PedidoController.php?operation=deletarhj&id=<?php echo "".$id ?>"><i class="fas fa-trash-alt fa-lg text-danger"></i></a>
-												</div>
+								<?php 	
+									if (empty($ped)) { ?>
+										<br><br><h5>Não existe nenhum pedido para hoje</h5><br>
+										<h5>Clique <a href="../View/Pedido/createPedido.php" id="hrefaqui">aqui</a> para inserir um novo</h5><br><br>
+								<?php	} else { ?>
+										<!-- Títulos das colunas -->
+										<div class="row mb-3 d-flex align-items-center tarefa">
+											<div class="col-sm-2 font-weight-bold">Nome</div>
+											<div class="col-sm-2 font-weight-bold">Cidade</div>
+											<div class="col-sm-3 font-weight-bold">Ração</div>
+											<div class="col-sm-2 font-weight-bold">Peso</div>
+											<div class="col-sm-2 font-weight-bold">Turno</div>
+											<div class="col-sm-2 mt-2 d-flex justify-content-between">
 											</div>
-								<?php	}	
-										//Limpa a variável de sessão para os valores não ficarem setados nas outras telas do app
-										unset($_SESSION['pedidoshoje']);									
-									}
-								?>							
-							</div>
+										</div>
+
+										<?php
+											//Verificação se a variável de sessão está setada
+											if(isset($_SESSION['pedidoshoje'])) {
+												include_once 'Model/Pedido.php';
+												
+												$pedidos = unserialize($_SESSION['pedidoshoje']);
+												
+												//Loop de apresentação de dados
+												foreach($pedidos as $p) { 	
+													$id = $p['idpedido'];
+													$peso = $p['peso']; ?>
+													
+													<div class="row mb-3 d-flex align-items-center tarefa">
+														<div class="col-sm-2"><?php echo $p['nomeprodutor'] ?></div>
+														<div class="col-sm-2"><?php echo $p['nomecidade'] ?></div>
+														<div class="col-sm-3"><?php echo $p['idracao']." - ".$p['nomeracao'] ?></div>
+														<div class="col-sm-2"><?php echo number_format("$peso",2,",",".") ?></div>
+														<div class="col-sm-2"><?php echo $p['nometurno'] ?></div>
+														<div class="col-sm d-flex justify-content-left">
+															<a href="../../Controller/PedidoController.php?operation=deletarhj&id=<?php echo "".$id ?>" onclick="return confirm('Deseja excluir esse registro ?')"><i class="fas fa-trash-alt fa-lg text-danger"></i></a>
+														</div>
+													</div>
+										<?php	}	
+												//Limpa a variável de sessão para os valores não ficarem setados nas outras telas do app
+												unset($_SESSION['pedidoshoje']);									
+											}
+										?>
+								<?php 			} ?>
+							</div> 
 						</div>						
 					</div>
 				</div>

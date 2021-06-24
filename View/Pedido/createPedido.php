@@ -159,7 +159,7 @@ date_default_timezone_set('America/Sao_Paulo');
 								<form action="../../Controller/PedidoController.php?operation=editar&id=<?php echo "" . $id ?>" method="post" name="formPedido">
 									<div class="form-group">
 										<label>Produtor: </label>
-										<select required name="txtprodutor" class="custom-select">
+										<select required name="txtprodutor" class="custom-select" id="selecteditp">
 											<option value="" disabled selected>Selecione o Produtor</option>
 											<?php
 											include_once 'Dao/ProdutorDAO.php';
@@ -179,7 +179,7 @@ date_default_timezone_set('America/Sao_Paulo');
 										<div class="row">
 											<div class="col-lg-9">
 												<br><label>Ração: </label>
-												<select required name="txttipoRacao" class="custom-select">
+												<select required name="txttipoRacao" class="custom-select" id="selecteditr">
 													<option value="" disabled selected>Selecione a Ração</option>
 													<?php
 													include_once 'Model/TipoRacao.php';
@@ -214,7 +214,7 @@ date_default_timezone_set('America/Sao_Paulo');
 											</div>
 											<div class="col-lg-6">
 												<br><label>Turno de Entrega: </label>
-												<select required name="txtturno" class="custom-select">
+												<select required name="txtturno" class="custom-select" id="selecteditt">
 													<option value="" disabled selected>Selecione o turno</option>
 													<option value="1">Manhã</option>
 													<option value="2">Tarde</option>
@@ -234,7 +234,17 @@ date_default_timezone_set('America/Sao_Paulo');
 			</div>
 		</div>
 	</div>
-
 </body>
+	<script>
+		//Função para fazer um GET na url em JS
+		const urlParams = new URLSearchParams(window.location.search);
+		var produtor = urlParams.get('produtor');
+		var racao = urlParams.get('racao');
+		var turno = urlParams.get('turno');
 
+		//Setar o select com o valor recebido
+		document.getElementById('selecteditp').value = produtor;
+		document.getElementById('selecteditr').value = racao;
+		document.getElementById('selecteditt').value = turno;
+	</script>
 </html>

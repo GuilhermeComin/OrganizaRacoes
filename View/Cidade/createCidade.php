@@ -65,10 +65,10 @@
 					<div class="container pagina">
 						<div class="row">
 							<div class="col">
-								<h4>Nova Cidade</h4>
-								<hr />
 								<!-- Verificação do GET para saber se é para editar ou criar -->
 								<?php if (empty($_GET) or (isset($_GET['inserir']))) { ?>
+								<h4>Nova Cidade</h4>
+								<hr />
 								<!-- Form de criar uma nova cidade -->
 								<form action="../../Controller/CidadeController.php?operation=cadastrar" method="post" name="formCidade">
 									<div class="form-group">
@@ -115,13 +115,15 @@
 								<?php } else if (isset($_GET['editar'])) {
 								$nome = $_GET['nome'];
 								$id = $_GET['id'] ?>
+								<h4>Editar Cidade</h4>
+								<hr />
 								<!-- Form de editar uma cidade -->
 								<form action="../../Controller/CidadeController.php?operation=editar&id=<?php echo "".$id ?>" method="post" name="formCidade">
 									<div class="form-group">
 										<label>Nome da Cidade: </label>
 										<input required type="text" name="txtcidade" class="form-control" value="<?php echo $nome?>"> <br>									
 										<br><label>Estado: </label>
-										<select required name="txtestado" class="custom-select">
+										<select required name="txtestado" class="custom-select" id="selectedit">
 											<option value="" disabled selected>Selecione o Estado</option>
 											<option value="Acre">Acre</option>
 											<option value="Alagoas">Alagoas</option>
@@ -164,4 +166,12 @@
 			</div>
 		</div>
 	</body>
+	<script>
+		//Função para fazer um GET na url em JS
+		const urlParams = new URLSearchParams(window.location.search);
+		var estado = urlParams.get('estado');
+
+		// //Setar o select com o valor recebido
+		document.getElementById('selectedit').value = estado;
+	</script>
 </html>

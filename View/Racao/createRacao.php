@@ -91,8 +91,8 @@
 										<label>Nome da ração:</label>
 										<input required type="text" name="txtnomeracao" class="form-control" value="<?php echo "$nome" ?>"><br>
 										<label>Destino:</label>
-										<select required name="txtdestino" class="custom-select">
-											<option value="" disabled selected>Selecione o tipo de Destino</option>
+										<select required name="txtdestino" class="custom-select" id="selectedit">
+											<option value="" disabled>Selecione o tipo de Destino</option>
 											<option value="1">Terminação</option>
 											<option value="2">Creche</option>
 											<option value="3">Maternidade</option>
@@ -109,4 +109,12 @@
 			</div>
 		</div>
 	</body>
+	<script>
+		//Função para fazer um GET na url em JS
+		const urlParams = new URLSearchParams(window.location.search);
+		const descricao = urlParams.get('descricao');
+
+		//Setar o select com o valor recebido
+		document.getElementById('selectedit').value = descricao;
+	</script>
 </html>

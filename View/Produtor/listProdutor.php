@@ -49,7 +49,7 @@
 					<div class="container pagina">
 						<div class="row">
 							<div class="col">
-								<h4>Todos Produtores: </h4>
+								<h4>Todos os Produtores: </h4>
 								<hr/>
 
 								<!-- Títulos das colunas -->
@@ -79,8 +79,8 @@
 												<div class="col-sm-3"><?php echo $p['nomecidade'] ?></div>
 												<div class="col-sm-2"><?php echo $p['descricao'] ?></div>
 												<div class="col-sm-2 mt-2 d-flex justify-content-between">
-													<a href="createProdutor.php?editar&id=<?php echo "".$id."&nome=".$p['nomeprodutor']."&cidade=".$p['nomecidade']."&destino=".$p['idsuino']?>"><i class="fas fa-edit fa-lg text-info"></i>
-													<a href="../../Controller/ProdutorController.php?operation=deletar&id=<?php echo "".$id ?>"><i class="fas fa-trash-alt fa-lg text-danger"></i></a>
+													<a href="createProdutor.php?editar&id=<?php echo "".$id."&nome=".$p['nomeprodutor']."&cidade=".$p['idcidade']."&destino=".$p['idsuino']?>"><i class="fas fa-edit fa-lg text-info"></i>
+													<a href="../../Controller/ProdutorController.php?operation=deletar&id=<?php echo "".$id ?>" onclick="return confirm('Deseja excluir esse registro ?')"><i class="fas fa-trash-alt fa-lg text-danger"></i></a>
 												</div>
 											</div>
 									<?php	}	

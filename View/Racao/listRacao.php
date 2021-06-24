@@ -48,7 +48,7 @@ if (empty($_SESSION['racoes'])) {
 				<div class="container pagina">
 					<div class="row">
 						<div class="col">
-							<h4>Todos os Pedidos: </h4>
+							<h4>Todas as Rações: </h4>
 							<hr />
 
 							<!-- Títulos das colunas -->
@@ -76,8 +76,8 @@ if (empty($_SESSION['racoes'])) {
 										<div class="col-sm-4"><?php echo $r['nomeracao'] ?></div>
 										<div class="col-sm-4"><?php echo $r['descricao'] ?></div>
 										<div class="col-sm-2 mt-2 d-flex justify-content-between">
-											<a href="createRacao.php?editar&id=<?php echo "" . $id . "&nome=" . $r['nomeracao'] . "&descricao=" . $r['descricao'] ?>"><i class="fas fa-edit fa-lg text-info"></i>
-												<a href="../../Controller/RacaoController.php?operation=deletar&id=<?php echo "" . $id ?>"><i class="fas fa-trash-alt fa-lg text-danger"></i></a>
+											<a href="createRacao.php?editar&id=<?php echo "" . $id . "&nome=" . $r['nomeracao'] . "&descricao=" . $r['tipodestino'] ?>"><i class="fas fa-edit fa-lg text-info"></i>
+												<a href="../../Controller/RacaoController.php?operation=deletar&id=<?php echo "" . $id ?>" onclick="return confirm('Deseja excluir esse registro ?')"><i class="fas fa-trash-alt fa-lg text-danger"></i></a>
 										</div>
 									</div>
 							<?php	}
